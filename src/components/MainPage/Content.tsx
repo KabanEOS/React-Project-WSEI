@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { Wrapper2, InnerWrapper } from "../../styledHelpers/Components";
 import { TopBar } from "../TopBar/TopBar";
 import { Colors } from "../../styledHelpers/Colors";
 

@@ -1,34 +1,48 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-import { Wrapper2, InnerWrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
 
 //media import
-import HomeIconPhoto from "../../media/icons/house.svg";
+import LoupePhoto from "../../media/icons/search.svg";
 
 const SearchBoxContainer = styled.div`
-  height: 27px;
-  display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   border: 1px solid;
   border-color: ${Colors.Gray};
-	border-radius: 3px;
+  border-radius: 3px;
+  margin: 3px;
 `;
 
 const SearchQuery = styled.div`
+  height: 21px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-	font-family: 'Open Sans', sans-serif;
+  flex-direction: row;
+  justify-content: space-between;
   color: ${Colors.LightGray};
+  margin: 3px;
 `;
+
+const Gap = styled.div`
+  display: flex;
+  width: 1px;
+`;
+const Search = styled.div`
+  display: flex;`
+const LoupeIcon = styled.img`
+  display: flex;
+  cursor: pointer;`
 
 export const SearchBox: FC = () => {
   return (
     <SearchBoxContainer>
-      <SearchQuery> Search </SearchQuery>
+      <SearchQuery>
+        <Gap />
+        <Search>Search</Search>
+        <LoupeIcon src={LoupePhoto} />
+      </SearchQuery>
     </SearchBoxContainer>
   );
 };

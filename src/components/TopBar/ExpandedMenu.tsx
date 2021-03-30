@@ -1,7 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-import { Wrapper2, InnerWrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
 
 //media import
@@ -10,7 +9,7 @@ import ArrowDownIconPhoto from "../../media/icons/arrow-down.svg";
 
 const ExpandedMenuContainer = styled.div`
   height: 27px;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -18,6 +17,7 @@ const ExpandedMenuContainer = styled.div`
   /* border: 1px solid; */
   border-color: ${Colors.LightGray};
   border-radius: 3px;
+  padding-right: 3px;
   cursor: pointer;
 
   &:hover {
@@ -33,9 +33,11 @@ const ArrowDown = styled.img`
   height: 6px;
   justify-content: flex-end;
   fill: ${Colors.WhiteSmoke};
+  
 `;
 const CategoryName = styled.div`
   font-family: "Open Sans", sans-serif;
+  min-width: 54px;
   margin-left: 3px;
   width: 70%;
 `;

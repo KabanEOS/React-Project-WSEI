@@ -5,5 +5,6 @@ export const Colors = {
     LightGray: '#808080',
     WhiteSmoke: '#F5F5F5',
     whiteLikeBackForBack: '#f5f7f9',
-    blueEight1: '#0190de'
+    blueEight1: '#0190de',
+    transparent: '#1C00ff00'
 }

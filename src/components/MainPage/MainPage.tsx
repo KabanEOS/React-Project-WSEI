@@ -7,9 +7,11 @@ import { LeftMenu } from "../LeftMenu/LeftMenu";
 import { Colors } from "../../styledHelpers/Colors";
 
 const ContentContainer = styled.div`
+  margin-top: 9px;
   flex-direction: row;
   display: flex;
   width: 100%;
+  height: 100%;
 `;
 const GlobalContainer = styled.div`
   background: ${Colors.whiteLikeBackForBack};

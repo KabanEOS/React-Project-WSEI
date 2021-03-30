@@ -1,11 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-import {
-  Wrapper,
-  Wrapper2,
-  InnerWrapper,
-} from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
 import { ExpandedMenu } from "./ExpandedMenu";
 import { SearchBox } from "./SearchBox";
@@ -38,70 +33,125 @@ const Logo = styled.img`
 `;
 
 const ExpandedMenuContainer = styled.div`
-  width: 21%;
+  margin-left:7%;
+  width: 23%;
 `;
 
 const SearchBoxContainer = styled.div`
-  width: 50%;
+  width: 40%;
 `;
+
 
 const Icons = styled.div`
   width: 30%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-`;
-const HomeIcon = styled.img`
-  z-index: 10;
-  padding: 3px;
-  margin-right: 9px;
-  cursor: pointer;
-`;
+  `;
+  const HomeIcon = styled.img`
+    z-index: 10;
+    padding: 3px;
+    margin-right: 9px;
+    cursor: pointer;
+  `;
 
-const CommentsIcon = styled.img`
-  z-index: 10;
-  padding: 3px;
-  margin-right: 9px;
-  cursor: pointer;
-`;
-const BellIcon = styled.img`
-  right: 3px;
-  z-index: 10;
-  /* padding: 3px; */
-  margin-right: 21px;
-  cursor: pointer;
+  const CommentsIconWrapper = styled.div`
+    position: relative;
+    margin-right: 6px;
 
-  // ACTIVE INJECTION IN CASE OF LABEL COUNTER != 0
-  background-color: ${Colors.WhiteSmoke};
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 6px;
-`;
+    width: 30px;
+    height: 30px;
 
-const CommentLabel = styled.div`
-  justify-content: center;
-  align-items: center;
-  z-index: 11;
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  font-size: 10px;
-  border-radius: 35%;
-  color: white;
-  background-color: ${Colors.blueEight1};
-  width: 15px;
+    // WHEN NOT ACTIVE !!!
+    /* background-color: white; */
 
-  // DZIEKIE POZYCJONOWANIE LABELKI NAD IKONAMI, JAKAS LIBKA MOŻE?
-  // CZEMU JUSTIFY CONTENT NIE DZIAŁA?
-  position: absolute;
-  top: 5px;
-  left: 738px;
-`;
-const BellLabel = styled.div``;
+    background-color: ${Colors.WhiteSmoke};
+    font-weight: bold;
+    border-radius: 50%;
+    border: 1px solid transparent;
+  `;
 
-const Gap = styled.div`
-  width: 6px;
-`;
+    const CommentsIcon = styled.img`
+      z-index: 10;
+      padding: 3px;
+      margin-right: 9px;
+
+      width: 21px;
+      padding: 6px;
+
+      cursor: pointer;
+    `;
+
+      const CommentsIconCounter = styled.div`
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      /* display: none; */
+      // WHEN NOT ACTIVE !!!
+      display: flex;
+      background-color: ${Colors.blueEight1};
+      border-radius: 45%;
+      border: 1px solid transparent;
+      width: 12px;
+      height: 10px;
+      `;
+
+        const CommentLabel = styled.div`
+          font-size: 9px;
+          margin: auto;
+
+          color: white;
+        `;
+
+  const BellIcon = styled.img`
+    right: 3px;
+    z-index: 10;
+    cursor: pointer;
+
+    padding: 6px;
+  `;
+
+
+    const BellIconWrapper = styled.div`
+      position: relative;
+      margin-right: 21px;
+
+      width: 30px;
+      height: 30px;
+
+      // WHEN NOT ACTIVE !!!
+      /* background-color: white; */
+
+      background-color: ${Colors.WhiteSmoke};
+      font-weight: bold;
+      border-radius: 50%;
+      border: 1px solid transparent;
+    `;
+
+      const BellIconCounter = styled.div`
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        // WHEN NOT ACTIVE !!!
+        /* display: none; */
+
+        display: flex;
+        background-color: ${Colors.blueEight1};
+        border-radius: 45%;
+        border: 1px solid transparent;
+        width: 12px;
+        height: 10px;
+      `;
+
+        const BellLabel = styled.div`
+        font-size: 9px;
+        margin: auto;
+
+        color: white;
+        `;
+
 
 export const TopBar: FC = () => {
   return (
@@ -110,15 +160,26 @@ export const TopBar: FC = () => {
       <ExpandedMenuContainer>
         <ExpandedMenu />
       </ExpandedMenuContainer>
-      <Gap />
       <SearchBoxContainer>
+
         <SearchBox />
       </SearchBoxContainer>
       <Icons>
         <HomeIcon src={HomeIconPhoto} />
-        <CommentsIcon src={CommentsIconPhoto} />
-        <CommentLabel>3</CommentLabel>
-        <BellIcon src={BellIconPhoto} />
+
+        <CommentsIconWrapper>
+          <CommentsIcon src={CommentsIconPhoto} />
+          <CommentsIconCounter>
+            <CommentLabel>12</CommentLabel>
+          </CommentsIconCounter>
+        </CommentsIconWrapper>
+
+        <BellIconWrapper>
+          <BellIcon src={BellIconPhoto} />
+          <BellIconCounter>
+            <BellLabel>12</BellLabel>
+          </BellIconCounter>
+        </BellIconWrapper>
       </Icons>
     </TopBarContainer>
   );
