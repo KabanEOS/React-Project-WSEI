@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import SearchExampleStandardCustom from "../TopBar/searchEngine";
 
 import { TopBar } from "../TopBar/TopBar";
 import { Colors } from "../../styledHelpers/Colors";
+import { Search, Grid, Header, Segment, Label } from 'semantic-ui-react'
 
 const ContentContainer = styled.div`
   display: flex;
@@ -14,10 +16,18 @@ const ContentWrapper = styled.div`
   padding: 4px;
 `;
 
+type InputString = {
+  
+}
+
 export const Content: FC = () => {
   return (
     <ContentContainer>
       <ContentWrapper>tiruriruuuu</ContentWrapper>
+      
     </ContentContainer>
   );
 };
+
+
+
