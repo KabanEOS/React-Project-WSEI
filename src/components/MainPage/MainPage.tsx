@@ -6,6 +6,8 @@ import { TopBar } from "../TopBar/TopBar";
 import { LeftMenu } from "../LeftMenu/LeftMenu";
 import { Colors } from "../../styledHelpers/Colors";
 
+import useDropdown from 'react-dropdown-hook';
+
 const ContentContainer = styled.div`
   margin-top: 9px;
   flex-direction: row;
@@ -32,10 +34,11 @@ const LeftContainer = styled.div`
   height: 93%;
 `;
 
+
 const MainPage: FC = () => {
   return (
     <GlobalContainer>
-      <TopBar />
+      <TopBar/>
       <ContentContainer>
         <LeftContainer>
           <LeftMenu />

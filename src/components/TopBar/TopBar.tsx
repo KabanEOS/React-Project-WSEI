@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
+import useDropdown from 'react-dropdown-hook';
 
 import { Colors } from "../../styledHelpers/Colors";
 import { ExpandedMenu } from "./ExpandedMenu";
@@ -10,6 +11,37 @@ import LogoImage from "../../media/logo.png";
 import HomeIconPhoto from "../../media/icons/house.svg";
 import CommentsIconPhoto from "../../media/icons/comments.svg";
 import BellIconPhoto from "../../media/icons/bell.svg";
+import ArrowDownIconPhoto from "../../media/icons/arrow-down.svg";
+
+const ExpandedMenuContainer = styled.div`
+  height: 27px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* border: 1px solid; */
+  border-color: ${Colors.LightGray};
+  border-radius: 3px;
+  padding-right: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background: ${Colors.WhiteSmoke};
+  }
+`;
+
+const ArrowDown = styled.img`
+  height: 6px;
+  justify-content: flex-end;
+  fill: ${Colors.WhiteSmoke};
+`;
+const CategoryName = styled.div`
+  font-family: "Open Sans", sans-serif;
+  min-width: 54px;
+  margin-left: 3px;
+  width: 70%;
+`;
 
 const TopBarContainer = styled.div`
   display: flex;
@@ -23,6 +55,15 @@ const TopBarContainer = styled.div`
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 `;
 
+
+const LeftSideWrapper = styled.div`
+  height: 27px;
+  min-width: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 const Logo = styled.img`
   display: flex;
   align-items: center;
@@ -32,30 +73,31 @@ const Logo = styled.img`
   margin: 3px;
 `;
 
-const ExpandedMenuContainer = styled.div`
-  margin-left:7%;
-  width: 23%;
+const DropDownMenuContainer = styled.div`
+  /* margin-left:7%; */
+  min-width: 300px;
 `;
 
-const SearchBoxContainer = styled.div`
-  width: 40%;
+const CenterWrapper = styled.div`
+  width: 28%;
+  min-width: 100px;
 `;
 
 
-const Icons = styled.div`
-  width: 30%;
+const RightSideWrapper = styled.div`
+  min-width: 36%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   `;
-  const HomeIcon = styled.img`
+const HomeIcon = styled.img`
     z-index: 10;
     padding: 3px;
     margin-right: 9px;
     cursor: pointer;
   `;
 
-  const CommentsIconWrapper = styled.div`
+const CommentsIconWrapper = styled.div`
     position: relative;
     margin-right: 6px;
 
@@ -71,7 +113,7 @@ const Icons = styled.div`
     border: 1px solid transparent;
   `;
 
-    const CommentsIcon = styled.img`
+const CommentsIcon = styled.img`
       z-index: 10;
       padding: 3px;
       margin-right: 9px;
@@ -82,7 +124,7 @@ const Icons = styled.div`
       cursor: pointer;
     `;
 
-      const CommentsIconCounter = styled.div`
+const CommentsIconCounter = styled.div`
       position: absolute;
       top: 0;
       right: 0;
@@ -97,14 +139,14 @@ const Icons = styled.div`
       height: 10px;
       `;
 
-        const CommentLabel = styled.div`
+const CommentLabel = styled.div`
           font-size: 9px;
           margin: auto;
 
           color: white;
         `;
 
-  const BellIcon = styled.img`
+const BellIcon = styled.img`
     right: 3px;
     z-index: 10;
     cursor: pointer;
@@ -113,7 +155,7 @@ const Icons = styled.div`
   `;
 
 
-    const BellIconWrapper = styled.div`
+const BellIconWrapper = styled.div`
       position: relative;
       margin-right: 21px;
 
@@ -129,7 +171,7 @@ const Icons = styled.div`
       border: 1px solid transparent;
     `;
 
-      const BellIconCounter = styled.div`
+const BellIconCounter = styled.div`
         position: absolute;
         top: 0;
         right: 0;
@@ -145,26 +187,50 @@ const Icons = styled.div`
         height: 10px;
       `;
 
-        const BellLabel = styled.div`
+const BellLabel = styled.div`
         font-size: 9px;
         margin: auto;
 
         color: white;
         `;
+const LeftSide = styled.div`
+        height: 100%;
+        width: 100%;
+        
+        `;
+
+interface ITopBarProps {
+  title: string;
+}
 
 
-export const TopBar: FC = () => {
+export const TopBar = () => {
+
+  const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
+
+  const menuHandler = () => {
+    toggleDropdown();
+  };
+
   return (
     <TopBarContainer>
-      <Logo src={LogoImage} />
-      <ExpandedMenuContainer>
-        <ExpandedMenu />
-      </ExpandedMenuContainer>
-      <SearchBoxContainer>
-
+      <LeftSideWrapper>
+        <Logo src={LogoImage} />
+        <DropDownMenuContainer ref={wrapperRef}>
+          <ExpandedMenuContainer onClick={menuHandler}>
+            <HomeIcon src={HomeIconPhoto} />
+            <CategoryName>Home</CategoryName>
+            <ArrowDown src={ArrowDownIconPhoto}  />
+          </ExpandedMenuContainer>
+            {dropdownOpen && 
+              <ExpandedMenu/>
+            }
+        </DropDownMenuContainer>
+      </LeftSideWrapper>
+      <CenterWrapper>
         <SearchBox />
-      </SearchBoxContainer>
-      <Icons>
+      </CenterWrapper>
+      <RightSideWrapper>
         <HomeIcon src={HomeIconPhoto} />
 
         <CommentsIconWrapper>
@@ -180,7 +246,8 @@ export const TopBar: FC = () => {
             <BellLabel>12</BellLabel>
           </BellIconCounter>
         </BellIconWrapper>
-      </Icons>
+      </RightSideWrapper>
+
     </TopBarContainer>
   );
 };

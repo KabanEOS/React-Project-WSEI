@@ -7,6 +7,7 @@ import MainPage from './components/MainPage/MainPage';
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Open Sans", sans-serif;
+    background-color: #f5f7f9;
   }
 `
 

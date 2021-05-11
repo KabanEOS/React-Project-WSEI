@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from 'axios';
 
 import { Colors } from "../../styledHelpers/Colors";
 import {
@@ -11,6 +12,7 @@ import {
   LineWrapperSection,
 } from "../../styledHelpers/Components";
 
+
 // media import
 import NetworkPhoto from "../../media/icons/people.svg";
 import UserPlusPhoto from "../../media/icons/user-plus.svg";
@@ -20,6 +22,7 @@ import EntitiesPhoto from "../../media/icons/entities2.svg";
 import PlusPhoto from "../../media/icons/plus.svg";
 
 import HeadPhotoPNG from "../../media/HeadPhoto.png";
+import { APP_ID, BASE_URL } from "../../consts";
 
 const CustomImg = styled.img``;
 
@@ -109,7 +112,26 @@ const Gap = styled.div`
   padding: 3px;
 `;
 
+
 export const LeftMenu: FC = () => {
+  
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<any>(null);
+  
+  useEffect(() => {
+      setLoading(true);
+      axios.get(`${BASE_URL}user`, { headers: { 'app-id': APP_ID } })
+          .then(({ data }) => setData(data))
+          .catch(console.error)
+          .finally(() => setLoading(false));
+  }, []);
+  
+  console.log(data);
+  // const personData = {
+  //   firstName: "Michał Madejski",
+  //   headName: "Michał Madejski",
+  // }
+
   return (
     <LeftMenuContainer>
       <OuterWrapper>
@@ -117,8 +139,8 @@ export const LeftMenu: FC = () => {
           <TileWrapperTop>
             <HeadWrapper>
               <HeadPhoto src={HeadPhotoPNG} />
-              <HeadName>Michał Madejski</HeadName>
-              <HeadTitle>Master Creator</HeadTitle>
+              <HeadName>{data && data.data[0]?.firstName}</HeadName>
+              <HeadTitle>Fancy text</HeadTitle>
             </HeadWrapper>
           </TileWrapperTop>
           <TileWrapperDown>

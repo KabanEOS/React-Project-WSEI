@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import SearchExampleStandardCustom from "../TopBar/searchEngine";
 
 import { TopBar } from "../TopBar/TopBar";
 import { Colors } from "../../styledHelpers/Colors";
@@ -23,8 +22,7 @@ type InputString = {
 export const Content: FC = () => {
   return (
     <ContentContainer>
-      <ContentWrapper>tiruriruuuu</ContentWrapper>
-      
+  
     </ContentContainer>
   );
 };
