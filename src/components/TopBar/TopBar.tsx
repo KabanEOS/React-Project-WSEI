@@ -196,7 +196,6 @@ const BellLabel = styled.div`
 const LeftSide = styled.div`
         height: 100%;
         width: 100%;
-        
         `;
 
 interface ITopBarProps {

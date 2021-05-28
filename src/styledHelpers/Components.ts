@@ -11,6 +11,10 @@ const boxShadow = (): Styles => {
   };
 };
 
+export const ContentWrapper = styled.div`
+  padding: 9px;
+`
+
 export const TileWrapperTop = styled.div`
   border-radius: 3px 3px 0px 0px;
   background-color: white;

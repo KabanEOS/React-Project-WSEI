@@ -1,5 +1,17 @@
-import React, { FC } from "react";
 import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter
+} from "react-router-dom";
+
+import Publications from "./Publications"
+import Ecosystem from "./Ecosystem"
+import Entities from "./Entities"
+import Administration from "./Administration"
+import People from "./People"
 
 import { Content } from "./Content";
 import { TopBar } from "../TopBar/TopBar";
@@ -7,6 +19,7 @@ import { LeftMenu } from "../LeftMenu/LeftMenu";
 import { Colors } from "../../styledHelpers/Colors";
 
 import useDropdown from 'react-dropdown-hook';
+import { FC } from "react";
 
 const ContentContainer = styled.div`
   margin-top: 9px;
@@ -44,6 +57,14 @@ const MainPage: FC = () => {
           <LeftMenu />
         </LeftContainer>
         <RightContainer>
+          <BrowserRouter forceRefresh={true}>
+            <Route path="/Home" component={Publications} />
+            <Route path="/Publications" component={Publications} />
+            <Route path="/People" component={People} />
+            <Route path="/Entities" component={Entities} />
+            <Route path="/Administration" component={Administration} />
+            <Route path="/Ecosystem"  component={Ecosystem} />
+          </BrowserRouter>
           <Content />
         </RightContainer>
       </ContentContainer>

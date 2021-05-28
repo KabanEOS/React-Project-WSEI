@@ -12,7 +12,6 @@ import {
   LineWrapperSection,
 } from "../../styledHelpers/Components";
 
-
 // media import
 import NetworkPhoto from "../../media/icons/people.svg";
 import UserPlusPhoto from "../../media/icons/user-plus.svg";
@@ -21,8 +20,9 @@ import EcosystemPhoto from "../../media/icons/ecosystem.svg";
 import EntitiesPhoto from "../../media/icons/entities2.svg";
 import PlusPhoto from "../../media/icons/plus.svg";
 
-import HeadPhotoPNG from "../../media/HeadPhoto.png";
+import HeadPhotoJPG from "../../media/HeadPhoto.jpg";
 import { APP_ID, BASE_URL } from "../../consts";
+import { PersonalData } from "../../entities/personalData";
 
 const CustomImg = styled.img``;
 
@@ -112,22 +112,21 @@ const Gap = styled.div`
   padding: 3px;
 `;
 
-
 export const LeftMenu: FC = () => {
   
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>(null);
   
-  useEffect(() => {
-      setLoading(true);
-      axios.get(`${BASE_URL}user`, { headers: { 'app-id': APP_ID } })
-          .then(({ data }) => setData(data))
-          .catch(console.error)
-          .finally(() => setLoading(false));
-  }, []);
+  // useEffect(() => {
+  //     setLoading(true);
+  //     axios.get(`${BASE_URL}user`, { headers: { 'app-id': APP_ID } })
+  //         .then(({ data }) => setData(data))
+  //         .catch(console.error)
+  //         .finally(() => setLoading(false));
+  // }, []);
   
-  console.log(data);
-  // const personData = {
+  // console.log(data);
+  // const PersonData = {
   //   firstName: "Michał Madejski",
   //   headName: "Michał Madejski",
   // }
@@ -138,9 +137,9 @@ export const LeftMenu: FC = () => {
         <LefMenuUp>
           <TileWrapperTop>
             <HeadWrapper>
-              <HeadPhoto src={HeadPhotoPNG} />
-              <HeadName>{data && data.data[0]?.firstName}</HeadName>
-              <HeadTitle>Fancy text</HeadTitle>
+              <HeadPhoto src={HeadPhotoJPG} />
+              <HeadName>{PersonalData.name}</HeadName>
+              <HeadTitle>{`${PersonalData.jobTitle} - ${PersonalData.company}`}</HeadTitle>
             </HeadWrapper>
           </TileWrapperTop>
           <TileWrapperDown>
