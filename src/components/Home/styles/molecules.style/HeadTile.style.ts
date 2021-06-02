@@ -14,7 +14,6 @@ export const HeadTileWrapper = styled.div`
   color: white;
   padding: 6px;
   margin: 6px;
-  transition: 0.6s;
   :hover& {
     background: linear-gradient(
       0deg,
@@ -29,14 +28,21 @@ export const HeadTileWrapper = styled.div`
 
 export const Description = styled.div`
   padding-top: 3px;
-  padding-down: 3px;
+  padding-bottom: 3px;
   font-size: 0.85rem;
   padding-bottom: 6px;
+  max-height: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
+export const PhotoWrapper = styled.div`
+  overflow: hidden;
+  position: relative;
+`;
 export const BarWrapper = styled.div`
   padding-top: 3px;
-  padding-down: 3px;
+  padding-bottom: 3px;
   color: #d3d5db;
   display: flex;
   font-size: 0.65rem;

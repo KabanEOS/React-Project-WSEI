@@ -65,7 +65,6 @@ const DropDownTile = styled.div`
   display: flex;
   align-items: center;
   margin-top:3px;
-  margin-down:6px;
   padding: 3px;
   text-decoration: none;
   font-size:0.95rem;
@@ -88,7 +87,6 @@ const LogoutIcon = styled.img`
   padding-right: 6px;
   padding-left: 3px;
   padding-top: 3px;
-  padding-down: 3px;
   width: 12px;
   height: 12px;
   `;
@@ -96,7 +94,6 @@ const HeadPhoto = styled.img`
   padding-right: 3px;
   padding-left: 3px;
   padding-top: 3px;
-  padding-down: 3px;
   width: 30px;
   height: 30px;
   `;

@@ -16,9 +16,7 @@ export const HeadTile: FC<Props> = (props: Props) => {
     <HeadTileWrapper>
       <Description>{props.description}</Description>
       <BarWrapper>
-        <CreationDate>
-          {props.creationDate}
-        </CreationDate>
+        <CreationDate>{props.creationDate}</CreationDate>
         <HeadPhotoWrapper src={HeadPhoto} />
         <AuthorName>{props.author}</AuthorName>
       </BarWrapper>

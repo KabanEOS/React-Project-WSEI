@@ -17,27 +17,26 @@ export const LatestPublications: FC = () => {
   let scaleValue: number = 1;
   hover ? scaleValue = 1.2 : scaleValue = 1;
 
+
+  //TODO map all that shit 
+
   return (
     <MainWrapper>
       <TileWrapper>
         <MainContainer>
           <LeftContainer onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
             <HeadTilePhoto scale={scaleValue} />
-            {/* {
-              !hover ?
-                (<HeadTilePhoto scale="1" />)
-                : (<HeadTilePhoto scale="1.2" />)
-            } */}
-            <HeadTile description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
+            <HeadTile description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
           </LeftContainer>
           <RightContainer >
             <SectionTitle>
               Latest Publications
             </SectionTitle>
-            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
-            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
+            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miaoiau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
+            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu n'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
             <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
             <SeeMoreLink>
+              {/* TODO add link route to publications */}
               See more publications
             </SeeMoreLink>
           </RightContainer>

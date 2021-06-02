@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Colors } from "../../../../styledHelpers/Colors";
 import temp01 from "./../../../../media/temp01.jpg";
 
-interface IEntityDisplay {
+interface ToScaleInterface {
   scale: number;
 }
 
@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
 export const LeftContainer = styled.div`
   border-radius: 3px 0px 0px 3px;
   height: 300px;
-  width: 300px;
+  min-width: 300px;
   overflow: hidden;
   position: relative;
   background-size: cover;
@@ -24,12 +24,13 @@ export const LeftContainer = styled.div`
   z-index: 1;
 `;
 
-export const HeadTilePhoto = styled.div<IEntityDisplay>`
+export const HeadTilePhoto = styled.div<ToScaleInterface>`
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 300px;
+  width: 300px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -37,21 +38,6 @@ export const HeadTilePhoto = styled.div<IEntityDisplay>`
   background: url(${temp01});
   transform: scale(${(props) => props.scale});
 `;
-// export const HeadTilePhoto = styled.div`
-//   z-index: 1;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-end;
-//   height: 300px;
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   transition: all 1s;
-//   background: url(${temp01});
-//   &:hover {
-//     transform: scale(1.2);
-//   }
-// `;
 
 export const RightContainer = styled.div`
   border-radius: 0px 3px 3px 0px;
@@ -70,5 +56,8 @@ export const SectionTitle = styled.div`
   padding-bottom: 6px;
 `;
 export const SeeMoreLink = styled.div`
+  padding-top: 4.5px;
   font-size: 0.8rem;
+  color: #4a49f0;
+  cursor: pointer;
 `;
