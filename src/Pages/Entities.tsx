@@ -5,14 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { ContentWrapper } from "../../styledHelpers/Components";
+import { ContentWrapper } from "../styledHelpers/Components";
 
-const Administration: FC = () => {
+const Entities: FC = () => {
   return (
     <ContentWrapper>
-      Administration
+      Entities
     </ContentWrapper>
   );
 };
 
-export default Administration;
+export default Entities;

@@ -13,7 +13,27 @@ const boxShadow = (): Styles => {
 
 export const ContentWrapper = styled.div`
   padding: 9px;
-`
+  display: flex;
+  width: 80vw;
+`;
+export const Text = styled.div`
+  padding: 9px;
+  display: flex;
+  width: 80vw;
+`;
+
+export const MainWrapper = styled.div`
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+  width: 100%;
+`;
+
+export const TileWrapper = styled.div`
+  border-radius: 3px;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  padding-down: 12px;
+  background-color: white;
+`;
 
 export const TileWrapperTop = styled.div`
   border-radius: 3px 3px 0px 0px;

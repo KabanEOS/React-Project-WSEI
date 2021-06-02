@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Reset } from 'styled-reset'
 import styled, { createGlobalStyle } from 'styled-components'
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './Pages/MainPage';
 
 
 const GlobalStyle = createGlobalStyle`

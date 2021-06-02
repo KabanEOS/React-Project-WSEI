@@ -2,121 +2,27 @@ import { FC, useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from 'axios';
 
-import { Colors } from "../../styledHelpers/Colors";
-import {
-  TileWrapperTop,
-  TileWrapperSection,
-  TileWrapperDown,
-  OuterWrapper,
-  LineWrapperTop,
-  LineWrapperSection,
-} from "../../styledHelpers/Components";
 
 // media import
-import NetworkPhoto from "../../media/icons/people.svg";
-import UserPlusPhoto from "../../media/icons/user-plus.svg";
-import PublicationsPhoto from "../../media/icons/publications.svg";
-import EcosystemPhoto from "../../media/icons/ecosystem.svg";
-import EntitiesPhoto from "../../media/icons/entities2.svg";
-import PlusPhoto from "../../media/icons/plus.svg";
+import NetworkPhoto from "../../../media/icons/people.svg";
+import UserPlusPhoto from "../../../media/icons/user-plus.svg";
+import PublicationsPhoto from "../../../media/icons/publications.svg";
+import EcosystemPhoto from "../../../media/icons/ecosystem.svg";
+import EntitiesPhoto from "../../../media/icons/entities2.svg";
+import PlusPhoto from "../../../media/icons/plus.svg";
 
-import HeadPhotoJPG from "../../media/HeadPhoto.jpg";
-import { APP_ID, BASE_URL } from "../../consts";
-import { PersonalData } from "../../entities/personalData";
-
-const CustomImg = styled.img``;
-
-const LeftMenuContainer = styled.div`
-  width: 330px;
-  /* align-items: center; */
-  display: flex;
-  flex-direction: row;
-  margin-left: 27px;
-`;
-const LefMenuUp = styled.div``;
-const LefMenuDown = styled.div`
-  padding-top: 6px;  
-`;
-
-const LeftMenuWrapper = styled.div`
-  font-family: "Open Sans", sans-serif;
-  padding: 4px;
-`;
-const HeadWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 9px;
-`;
-
-const HeadPhoto = styled.img`
-  width: 45%;
-  padding: 9px;
-`;
-const HeadName = styled.div`
-  padding: 3px;
-  font-size: 18px;
-  font-weight: bold;
-  color: ${Colors.blueEight1};
-`;
-const HeadTitle = styled.div`
-  padding: 3px;
-  font-size: 12px;
-  font-weight: bold;
-  color: ${Colors.Gray};
-`;
-const YourEtcTxtIcoSet = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const YourEtcTxtIcoSetLinks = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  cursor: pointer;
-`;
-const Icon = styled.img`
-  width: 24px;
-  height: 21px;
-  padding: 3px;
-`;
-const TxtWrapper = styled.div`
-  padding: 3px;
-  width: 65%;
-`;
-const Txt = styled.div`
-  font-weight: bold;
-  font-size: 15px;
-  color: ${Colors.LightGray};
-`;
-const RoundedIcon = styled.img`
-  width: 18px;
-  height: 12px;
-  border-radius: 3px;
-  border: 2px solid #808080;
-  padding: 3px;
-
-  cursor: pointer;
-
-  &:hover {
-    background: ${Colors.WhiteSmoke};
-  }
-`;
-const Gap = styled.div`
-  width: 18px;
-  height: 12px;
-  border-radius: 3px;
-  padding: 3px;
-`;
+import HeadPhotoJPG from "../../../media/HeadPhoto.jpg"
+import { APP_ID, BASE_URL } from "../../../consts";
+import { PersonalData } from "../../../entities/personalData";
+import { OuterWrapper, TileWrapperTop, TileWrapperDown, LineWrapperTop, LineWrapperSection } from "../../../styledHelpers/Components";
+import { Icon } from "semantic-ui-react";
+import { LeftMenuContainer, LefMenuUp, HeadWrapper, HeadPhoto, HeadName, HeadTitle, YourEtcTxtIcoSet, TxtWrapper, Txt, RoundedIcon, LefMenuDown, YourEtcTxtIcoSetLinks, Gap } from "./LeftMenu.style";
 
 export const LeftMenu: FC = () => {
-  
+
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>(null);
-  
+
   // useEffect(() => {
   //     setLoading(true);
   //     axios.get(`${BASE_URL}user`, { headers: { 'app-id': APP_ID } })
@@ -124,7 +30,7 @@ export const LeftMenu: FC = () => {
   //         .catch(console.error)
   //         .finally(() => setLoading(false));
   // }, []);
-  
+
   // console.log(data);
   // const PersonData = {
   //   firstName: "Michał Madejski",

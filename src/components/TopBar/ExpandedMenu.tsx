@@ -2,24 +2,17 @@ import { FC, useState, ChangeEvent } from "react";
 import styled from "styled-components";
 
 import { Colors } from "../../styledHelpers/Colors";
-import { routes } from "../../entities/routes"
 
-import Publications from "../../components/MainPage/Publications"
-import Ecosystem from "../../components/MainPage/Ecosystem"
-import Entities from "../../components/MainPage/Entities"
-import Administration from "../../components/MainPage/Administration"
 import { PersonalData } from "../../entities/personalData";
 import HeadPhotoJPG from "../../media/HeadPhoto.jpg";
 
-import HomeIconPhoto from "../../media/icons/house.svg";
 import HomeIcon2Photo from "../../media/icons/house2.svg";
 import NetworkPhoto from "../../media/icons/people.svg";
-import UserPlusPhoto from "../../media/icons/user-plus.svg";
+
+
 import PublicationsPhoto from "../../media/icons/publications.svg";
-import EcosystemPhoto from "../../media/icons/ecosystem.svg";
 import EntitiesPhoto from "../../media/icons/entities.svg";
 import Entities2Photo from "../../media/icons/entities2.svg";
-import PlusPhoto from "../../media/icons/plus.svg";
 import AdministrationPhoto from "../../media/icons/administration.svg";
 import FormPhoto from "../../media/icons/form.svg";//my own icon traced to svg from img cause not delivered :'(
 import BookPhoto from "../../media/icons/book.svg";//my own icon traced to svg from img cause not delivered :'(
@@ -29,21 +22,8 @@ import LogoutPhoto from "../../media/icons/logout.svg";//my own icon traced to s
 
 import {
   BrowserRouter,
-  BrowserRouter as Router,
   Link,
-  Redirect,
-  Route,
-  Switch
 } from "react-router-dom";
-
-import {
-  TileWrapperTop,
-  TileWrapperSection,
-  TileWrapperDown,
-  OuterWrapper,
-  LineWrapperTop,
-  LineWrapperSection,
-} from "../../styledHelpers/Components";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -60,8 +40,7 @@ const SectionHead = styled.div`
 `;
 
 const DropdownTopWrapper = styled.div`
-  max-height: 393px;
-  overflow-y: auto;
+  overflow-y: 547.33;
 
   position: absolute;
   top: 40px;
@@ -74,33 +53,14 @@ const DropdownTopWrapper = styled.div`
   border-radius: 3px;
   padding-right: 3px;
   cursor: pointer;
-  border-radius: 3px 3px 3px 3px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   z-index: 10;
   padding: 3px;
   /* transform: translateY(27px); */
-`;
-
-const DropdownDownWrapper = styled.div`
-  position: relative;
-  top: 0px;
-  height: auto;
-  width: 226px;
-  display: flex;
-  flex-direction: column;
-
-  background-color: white;
-  border-radius: 3px;
-  padding-right: 3px;
-  cursor: pointer;
-  border-radius: 3px 3px 3px 3px;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  padding: 3px;
-  /* transform: translateY(27px); */
-`;
+  `;
 
 const DropDownTile = styled.div`
+  border-radius: 3px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -111,11 +71,11 @@ const DropDownTile = styled.div`
   font-size:0.95rem;
   font-weight: bold;
   color: #232C47;
-
-    &:hover {
+  
+  &:hover {
     background: ${Colors.WhiteSmoke};
   }
-`;
+  `;
 const Icon = styled.img`
   padding-right: 6px;
   padding-left: 3px;
@@ -123,7 +83,7 @@ const Icon = styled.img`
   padding-down: 3px;
   width: 24px;
   height: 18px;
-`;
+  `;
 const LogoutIcon = styled.img`
   padding-right: 6px;
   padding-left: 3px;
@@ -131,7 +91,7 @@ const LogoutIcon = styled.img`
   padding-down: 3px;
   width: 12px;
   height: 12px;
-`;
+  `;
 const HeadPhoto = styled.img`
   padding-right: 3px;
   padding-left: 3px;
@@ -139,40 +99,40 @@ const HeadPhoto = styled.img`
   padding-down: 3px;
   width: 30px;
   height: 30px;
-`;
+  `;
 const Separator = styled.div`
   padding-top: 3px;
   border-bottom: 1px solid #f5f5f5;
-`;
+  `;
 const AccountTile = styled.div`
   flex-direction: column;
-`;
+  `;
 const AccountTileName = styled.div`
   padding: 1.5px;
   color: #232C47;
   font-size: 0.85rem;
-`;
+  border-radius: 3px;
+  `;
 const AccountTileLink = styled.div`
+  border-radius: 3px;
   padding: 1.5px;
   color: #384BA3;
   font-size: 0.55rem;
-`;
+  `;
 const LogoutTile = styled.div`
   color: #CCCCCC;
+  border-radius: 3px;
   width: auto;
+  height:27px;
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    background: ${Colors.darkRed};
+  }
 `;
 
-// interface ITopBarProps {
-//   title: string;
-// }
-
 export const ExpandedMenu: FC = () => {
-  let isSearching: boolean = false;
-
-  const [routesEach, setRoutesEach] = useState(routes);
   const [isSeacrhing, setIsSearching] = useState(false);
 
   const [inputText, setInputText] = useState<string>('')
@@ -187,13 +147,11 @@ export const ExpandedMenu: FC = () => {
     }
   }
 
-  // eslint-disable-next-line no-restricted-globals
-  // eslint-disable-next-line no-unreachable
   return (
     <MainWrapper>
       <BrowserRouter forceRefresh={true}>
         <DropdownTopWrapper>
-          <input type="text" value={inputText} onChange={inputHandler} />
+          <input type="text" placeholder={"Search..."} value={inputText} onChange={inputHandler} />
           {!isSeacrhing &&
             <SectionHead>
               Platform
@@ -239,7 +197,6 @@ export const ExpandedMenu: FC = () => {
               </DropDownTile>
             </Link>
           }
-
           {!isSeacrhing &&
             <SectionHead>
               Workspaces
@@ -293,22 +250,9 @@ export const ExpandedMenu: FC = () => {
               </DropDownTile>
             </Link>
           }
-          {'Real estate contracts Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-            <Link to="/SupplierContract" style={{ textDecoration: 'none' }}>
-              <DropDownTile >
-                <Icon src={FormPhoto} />
-                Real estate contracts
-              </DropDownTile>
-            </Link>
-          }
           {!isSeacrhing &&
             <Separator />
           }
-        </DropdownTopWrapper>
-      </BrowserRouter >
-
-      <DropdownDownWrapper>
-        <BrowserRouter forceRefresh={true}>
           {!isSeacrhing &&
             <SectionHead>
               Account
@@ -357,8 +301,8 @@ export const ExpandedMenu: FC = () => {
             </Link>
           }
 
-        </BrowserRouter >
-      </DropdownDownWrapper>
+        </DropdownTopWrapper>
+      </BrowserRouter >
     </MainWrapper>
   );
 };

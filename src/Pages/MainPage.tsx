@@ -12,11 +12,12 @@ import Ecosystem from "./Ecosystem"
 import Entities from "./Entities"
 import Administration from "./Administration"
 import People from "./People"
+import { NotFound } from "./NotFound"
 
-import { Content } from "./Content";
-import { TopBar } from "../TopBar/TopBar";
-import { LeftMenu } from "../LeftMenu/LeftMenu";
-import { Colors } from "../../styledHelpers/Colors";
+import { Home } from "./Home";
+import { TopBar } from "../components/TopBar/TopBar";
+import { LeftMenu } from "../components/MainPage/LeftMenu/LeftMenu";
+import { Colors } from "../styledHelpers/Colors";
 
 import useDropdown from 'react-dropdown-hook';
 import { FC } from "react";
@@ -37,8 +38,9 @@ const GlobalContainer = styled.div`
 const RightContainer = styled.div`
   flex-direction: row;
   display: flex;
-  width: 75vw;
+  width: 100%;
   height: 93%;
+  padding-right: 24px;
 `;
 const LeftContainer = styled.div`
   flex-direction: row;
@@ -47,25 +49,26 @@ const LeftContainer = styled.div`
   height: 93%;
 `;
 
-
 const MainPage: FC = () => {
   return (
     <GlobalContainer>
-      <TopBar/>
+      <TopBar />
       <ContentContainer>
         <LeftContainer>
           <LeftMenu />
         </LeftContainer>
         <RightContainer>
-          <BrowserRouter forceRefresh={true}>
-            <Route path="/Home" component={Publications} />
-            <Route path="/Publications" component={Publications} />
-            <Route path="/People" component={People} />
-            <Route path="/Entities" component={Entities} />
-            <Route path="/Administration" component={Administration} />
-            <Route path="/Ecosystem"  component={Ecosystem} />
-          </BrowserRouter>
-          <Content />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/Publications" component={Publications} />
+              <Route path="/People" component={People} />
+              <Route path="/Entities" component={Entities} />
+              <Route path="/Administration" component={Administration} />
+              <Route path="/Ecosystem" component={Ecosystem} />
+              <Route path="/*" component={NotFound} />
+            </Switch>
+          </Router>
         </RightContainer>
       </ContentContainer>
     </GlobalContainer>

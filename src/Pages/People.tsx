@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { ContentWrapper } from "../../styledHelpers/Components";
+import { ContentWrapper } from "../styledHelpers/Components";
 
 const People: FC = () => {
   return (

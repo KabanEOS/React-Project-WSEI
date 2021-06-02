@@ -5,14 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { ContentWrapper } from "../../styledHelpers/Components";
+import { ContentWrapper } from "../styledHelpers/Components";
 
-const Publications: FC = () => {
+const Ecosystem: FC = () => {
   return (
     <ContentWrapper>
-      Publications
+      Ecosystem
     </ContentWrapper>
   );
 };
 
-export default Publications;
+export default Ecosystem;
