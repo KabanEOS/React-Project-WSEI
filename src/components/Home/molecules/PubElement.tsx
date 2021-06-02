@@ -12,8 +12,6 @@ interface Props {
   photoUrl: string
 }
 
-
-
 //TODO map all that shit
 
 export const PubElement: FC<Props> = (props: Props) => {
@@ -27,7 +25,7 @@ export const PubElement: FC<Props> = (props: Props) => {
   return (
     <PubElementStyle.PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
       <PhotoWrapper>
-        <PubElementStyle.PubPhoto scale={scaleValue} src={temp01} />
+        <PubElementStyle.PubPhoto src={temp01} scale={scaleValue} />
       </PhotoWrapper>
 
       <PubElementStyle.ContentRight>

@@ -22,16 +22,16 @@ export const Text = styled.div`
   width: 80vw;
 `;
 
-export const MainWrapper = styled.div`
+export const LatestPublicationsWrapper = styled.div`
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-  padding-bottom: 12px;
+  height: 300px;
   width: 100%;
 `;
 
 export const TileWrapper = styled.div`
+  position: relative;
   border-radius: 3px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-  padding-down: 12px;
   background-color: white;
 `;
 

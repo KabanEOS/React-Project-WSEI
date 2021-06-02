@@ -35,7 +35,7 @@ const Search = styled.div`
   display: flex;`
 const LoupeIcon = styled.img`
   display: flex;
-  cursor: pointer;`
+  cursor: pointer !important;`
 
 const Input = styled.input`
   text-align: center;
@@ -58,10 +58,10 @@ export const SearchBox: FC = () => {
       <SearchQuery>
         <Gap />
         <Search>
-          <Input 
-            type="text" 
-            placeholder="Search" 
-            // onKeyUp="" // funkcja wyszukująca
+          <Input
+            type="text"
+            placeholder="Search"
+          // onKeyUp="" // funkcja wyszukująca
           />
         </Search>
         <LoupeIcon src={LoupePhoto} />

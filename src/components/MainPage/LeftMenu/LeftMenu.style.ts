@@ -50,7 +50,7 @@ export const YourEtcTxtIcoSetLinks = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  cursor: pointer;
+  cursor: pointer !important;
 `;
 export const Icon = styled.img`
   width: 24px;
@@ -73,7 +73,7 @@ export const RoundedIcon = styled.img`
   border: 2px solid #808080;
   padding: 3px;
 
-  cursor: pointer;
+  cursor: pointer !important;
 
   &:hover {
     background: ${Colors.WhiteSmoke};

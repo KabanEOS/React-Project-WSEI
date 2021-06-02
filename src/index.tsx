@@ -19,7 +19,3 @@ ReactDOM.render(
   </>,
   document.getElementById('root')
 );
-
-// PENDING QUESTIONS:
-
-// stylowanie search bar, zwłaszcza onFocus()

@@ -17,12 +17,13 @@ export const PubElementWrapper = styled.div`
   &:hover {
     background: ${Colors.WhiteSmoke};
   }
-  cursor: pointer;
+  cursor: pointer !important;
 `;
 
 export const PubPhoto = styled.img<ToScaleInterface>`
   border-radius: 3px 0px 0px 3px;
   height: 73px;
+  width: 73px;
   transition: all 1s;
   transform: scale(${(props) => props.scale});
 `;

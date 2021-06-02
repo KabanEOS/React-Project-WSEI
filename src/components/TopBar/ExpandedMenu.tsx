@@ -33,7 +33,7 @@ const MainWrapper = styled.div`
 const SectionHead = styled.div`
   padding-left: 3px;
   padding-top: 7px;
-  padding-down: 3px;
+  padding-bottom: 3px;
   font-size: 0.7rem;
   font-weight: bold;
   color: #CCCCCC;
@@ -52,7 +52,7 @@ const DropdownTopWrapper = styled.div`
   background-color: white;
   border-radius: 3px;
   padding-right: 3px;
-  cursor: pointer;
+  cursor: pointer !important;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   z-index: 10;
   padding: 3px;
@@ -61,7 +61,7 @@ const DropdownTopWrapper = styled.div`
 
 const DropDownTile = styled.div`
   border-radius: 3px;
-  cursor: pointer;
+  cursor: pointer !important;
   display: flex;
   align-items: center;
   margin-top:3px;

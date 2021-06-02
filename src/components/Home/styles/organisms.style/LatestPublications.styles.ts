@@ -2,12 +2,12 @@
 import styled from "styled-components";
 import { Colors } from "../../../../styledHelpers/Colors";
 import temp01 from "./../../../../media/temp01.jpg";
-
 interface ToScaleInterface {
   scale: number;
 }
 
 export const MainContainer = styled.div`
+  height: 300px;
   display: flex;
   flex-direction: row;
 `;
@@ -54,10 +54,11 @@ export const SectionTitle = styled.div`
   font-weight: bold;
   font-size: 1.1rem;
   padding-bottom: 6px;
+  color: ${Colors.LightGray};
 `;
 export const SeeMoreLink = styled.div`
   padding-top: 4.5px;
   font-size: 0.8rem;
   color: #4a49f0;
-  cursor: pointer;
+  cursor: pointer !important;
 `;

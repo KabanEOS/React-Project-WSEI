@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { MainWrapper, TileWrapper } from "../../../styledHelpers/Components";
+import { LatestPublicationsWrapper as LatestPublicationsWrapper, TileWrapper } from "../../../styledHelpers/Components";
 import { HeadTile } from "../molecules/HeadTile";
 import { HeadTilePhoto, LeftContainer, MainContainer, RightContainer, SectionTitle, SeeMoreLink } from "../styles/organisms.style/LatestPublications.styles";
 import { PubElement } from "../molecules/PubElement";
@@ -15,13 +15,13 @@ export const LatestPublications: FC = () => {
     setHover((hover) => !hover);
   };
   let scaleValue: number = 1;
-  hover ? scaleValue = 1.2 : scaleValue = 1;
+  hover ? scaleValue = 1.12 : scaleValue = 1;
 
 
   //TODO map all that shit 
 
   return (
-    <MainWrapper>
+    <LatestPublicationsWrapper>
       <TileWrapper>
         <MainContainer>
           <LeftContainer onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
@@ -42,7 +42,7 @@ export const LatestPublications: FC = () => {
           </RightContainer>
         </MainContainer>
       </TileWrapper>
-    </MainWrapper >
+    </LatestPublicationsWrapper >
   )
 }
 

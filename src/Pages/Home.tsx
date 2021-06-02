@@ -16,8 +16,8 @@ export const Home: FC = () => {
   return (
     <ContentWrapper>
       <LatestPublications />
-      <Resume />
       <Workspaces />
+      {/* <Resume /> */}
 
     </ContentWrapper>
   );

@@ -24,7 +24,7 @@ const ExpandedMenuContainer = styled.div`
   border-color: ${Colors.LightGray};
   border-radius: 3px;
   padding-right: 3px;
-  cursor: pointer;
+  cursor: pointer !important;
 
   &:hover {
     background: ${Colors.WhiteSmoke};
@@ -94,7 +94,7 @@ const HomeIcon = styled.img`
     z-index: 10;
     padding: 3px;
     margin-right: 9px;
-    cursor: pointer;
+    cursor: pointer !important;
   `;
 
 const CommentsIconWrapper = styled.div`
@@ -121,7 +121,7 @@ const CommentsIcon = styled.img`
       width: 21px;
       padding: 6px;
 
-      cursor: pointer;
+      cursor: pointer !important;
     `;
 
 const CommentsIconCounter = styled.div`
@@ -149,7 +149,7 @@ const CommentLabel = styled.div`
 const BellIcon = styled.img`
     right: 3px;
     z-index: 10;
-    cursor: pointer;
+    cursor: pointer !important;
 
     padding: 6px;
   `;
@@ -219,11 +219,11 @@ export const TopBar = () => {
           <ExpandedMenuContainer onClick={menuHandler}>
             <HomeIcon src={HomeIconPhoto} />
             <CategoryName>Home</CategoryName>
-            <ArrowDown src={ArrowDownIconPhoto}  />
+            <ArrowDown src={ArrowDownIconPhoto} />
           </ExpandedMenuContainer>
-            {dropdownOpen && 
-              <ExpandedMenu/>
-            }
+          {dropdownOpen &&
+            <ExpandedMenu />
+          }
         </DropDownMenuContainer>
       </LeftSideWrapper>
       <CenterWrapper>
