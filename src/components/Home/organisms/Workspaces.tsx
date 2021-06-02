@@ -7,9 +7,11 @@ import { TileWrapper } from "../../../styledHelpers/Components";
 import { WorkElement } from "../molecules/WorkElement";
 import { BelowSectionTitle, WorkElementsSliderWrapper, WorkspacesWrapper } from "../styles/organisms.style/Workspaces.styles";
 
-
 export const Workspaces: FC = () => {
-  const [ref, slider] = useKeenSlider<HTMLDivElement>({ slidesPerView: 3, spacing: 15 })
+  const [ref, slider] = useKeenSlider<HTMLDivElement>({ slidesPerView: 5, spacing: 12 })
+  //TODO map shit naturally and make screen width media query
+
+
   return (
     <WorkspacesWrapper>
       <BelowSectionTitle>
@@ -23,9 +25,13 @@ export const Workspaces: FC = () => {
           <div className="keen-slider__slide number-slide4"><WorkElement /></div>
           <div className="keen-slider__slide number-slide5"><WorkElement /></div>
           <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
         </div>
       </WorkElementsSliderWrapper>
-    </WorkspacesWrapper>
-
+    </WorkspacesWrapper >
   )
 }

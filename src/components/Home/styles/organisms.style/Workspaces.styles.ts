@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { useKeenSlider } from "keen-slider/react";
 
 import { Colors } from "../../../../styledHelpers/Colors";
@@ -17,8 +16,8 @@ export const BelowSectionTitle = styled.div`
 
 export const WorkElementsSliderWrapper = styled.div`
   height: auto;
-  max-width: 1200px;
-  min-width: 700px;
+  min-width: 900px;
+  max-width: 73vw;
   display: flex;
   flex-direction: row;
 `;

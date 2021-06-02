@@ -26,7 +26,7 @@ const ContentContainer = styled.div`
   margin-top: 9px;
   flex-direction: row;
   display: flex;
-  width: 100%;
+  width: 90%;
   height: 100%;
 `;
 const GlobalContainer = styled.div`
@@ -38,9 +38,9 @@ const GlobalContainer = styled.div`
 const RightContainer = styled.div`
   flex-direction: row;
   display: flex;
-  width: 100%;
+  width: 73vw;
+  margin-right:10%;
   height: 93%;
-  padding-right: 24px;
 `;
 const LeftContainer = styled.div`
   flex-direction: row;
