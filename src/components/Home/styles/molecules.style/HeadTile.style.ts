@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const HeadTileWrapper = styled.div`
   height: auto;
   border-radius: 3px;
+  position: absolute;
+  bottom: 0;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.55) 0%,
@@ -22,16 +24,22 @@ export const HeadTileWrapper = styled.div`
     );
   }
   cursor: pointer;
+  z-index: 99;
 `;
 
 export const Description = styled.div`
-  font-size: 0.95rem;
+  padding-top: 3px;
+  padding-down: 3px;
+  font-size: 0.85rem;
   padding-bottom: 6px;
 `;
 
 export const BarWrapper = styled.div`
+  padding-top: 3px;
+  padding-down: 3px;
+  color: #d3d5db;
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   align-items: center;
   flex-direction: row;
 `;

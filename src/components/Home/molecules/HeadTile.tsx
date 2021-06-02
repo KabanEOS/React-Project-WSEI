@@ -9,6 +9,8 @@ interface Props {
   photoUrl: string
 }
 
+//TODO map all that shit
+
 export const HeadTile: FC<Props> = (props: Props) => {
   return (
     <HeadTileWrapper>
@@ -17,7 +19,6 @@ export const HeadTile: FC<Props> = (props: Props) => {
         <CreationDate>
           {props.creationDate}
         </CreationDate>
-        {/* <HeadPhoto src={props.photoUrl} /> */}
         <HeadPhotoWrapper src={HeadPhoto} />
         <AuthorName>{props.author}</AuthorName>
       </BarWrapper>
