@@ -19,8 +19,8 @@ export const WorkElement: FC = () => {
   let scaleValue: number = 1;
   hover ? scaleValue = 1.1 : scaleValue = 1;
   return (
-    <WorkElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
-      <TileWrapper>
+    <TileWrapper>
+      <WorkElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
         <TopWrapper>
           <TopImage src={temp02} scale={scaleValue} />
         </TopWrapper>
@@ -45,8 +45,7 @@ export const WorkElement: FC = () => {
             Last update 2 days ago.
           </UpdateBarWrapper>
         </BottomWrapper>
-
-      </TileWrapper>
-    </WorkElementWrapper>
+      </WorkElementWrapper>
+    </TileWrapper>
   )
 };

@@ -15,8 +15,7 @@ import HeadPhotoJPG from "../../../media/HeadPhoto.jpg"
 import { APP_ID, BASE_URL } from "../../../consts";
 import { PersonalData } from "../../../entities/personalData";
 import { OuterWrapper, TileWrapperTop, TileWrapperDown, LineWrapperTop, LineWrapperSection } from "../../../styledHelpers/Components";
-import { Icon } from "semantic-ui-react";
-import { LeftMenuContainer, LefMenuUp, HeadWrapper, HeadPhoto, HeadName, HeadTitle, YourEtcTxtIcoSet, TxtWrapper, Txt, RoundedIcon, LefMenuDown, YourEtcTxtIcoSetLinks, Gap } from "./LeftMenu.style";
+import { Icon, LeftMenuContainer, LefMenuUp, HeadWrapper, HeadPhoto, HeadName, HeadTitle, YourEtcTxtIcoSet, TxtWrapper, Txt, RoundedIcon, LefMenuDown, YourEtcTxtIcoSetLinks, Gap } from "./LeftMenu.style";
 
 export const LeftMenu: FC = () => {
 

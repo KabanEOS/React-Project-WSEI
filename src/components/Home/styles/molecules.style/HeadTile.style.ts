@@ -35,6 +35,7 @@ export const Description = styled.div`
   max-height: 75px;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: ${Colors.Gray};
 `;
 
 export const PhotoWrapper = styled.div`
@@ -47,7 +48,7 @@ export const PhotoWrapper = styled.div`
 export const BarWrapper = styled.div`
   padding-top: 6px;
   padding-bottom: 3px;
-  color: ${Colors.WhiteSmoke};
+  color: ${Colors.LightGray};
   display: flex;
   font-size: 0.65rem;
   align-items: center;

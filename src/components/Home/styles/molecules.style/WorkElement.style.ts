@@ -84,6 +84,13 @@ export const WorkBarWrapper = styled.div`
   }
 `;
 export const Line = styled.div`
+  font-size: 0.65rem;
+  color: ${Colors.Gray};
+  font-weight: 600;
+`;
+
+export const DarkLine = styled.div`
+  font-size: 0.65rem;
   color: ${Colors.LightGray};
   font-weight: 600;
 `;
@@ -100,6 +107,7 @@ export const CategoryIcon = styled.img`
 
 export const Dot = styled.div`
   font-size: 1.6rem;
+  color: ${Colors.Gray};
 `;
 
 export const UpdateBarWrapper = styled.div`

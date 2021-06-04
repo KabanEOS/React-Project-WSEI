@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { HeadPhoto } from "../../MainPage/LeftMenu/LeftMenu.style";
+import HeadPhoto from "./../../../media/HeadPhoto.jpg"
 import { HeadPhotoWrapper, BarWrapper, Description, HeadTileWrapper, CreationDate, AuthorName } from "../styles/molecules.style/HeadTile.style";
 interface Props {
   description: string,
