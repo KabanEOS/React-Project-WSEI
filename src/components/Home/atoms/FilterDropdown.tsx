@@ -11,28 +11,21 @@ interface IFilterDd {
   handler(val: any): void;
 }
 
-export const FilterDropdown = ({ value, handler }: IFilterDd) => {
+export const FilterDropdown = ({ handler }: IFilterDd) => {
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = (val: string) => {
-    setAnchorEl(null);
+  const handleClick = (val: string) => {
     handler(val)
   };
 
   return (
     <FilterDropdownWrapper>
-      <FilterDropdownSection>
+      <FilterDropdownSection onClick={()=>handleClick("All")}>
         <Icon src={AllPhoto} />
         <FilterName>
           All       
         </FilterName>
       </FilterDropdownSection>
-      <FilterDropdownSection>        
+      <FilterDropdownSection onClick={()=>handleClick("Followed")}>        
         <Icon src={SignalPhoto} />
         <FilterName>
           Followed
@@ -41,5 +34,6 @@ export const FilterDropdown = ({ value, handler }: IFilterDd) => {
     </FilterDropdownWrapper>
   )
 }
+
 
 

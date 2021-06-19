@@ -5,8 +5,8 @@ import { IPhotosReducer } from "../../../reducers/photoReducer";
 import { IPostReducer } from "../../../reducers/postReducer";
 import { IUsersReducer } from "../../../reducers/usersReducer";
 import { AuthorName, BarWrapper, CreationDate, HeadPhotoWrapper, PhotoWrapper } from "../styles/molecules.style/HeadTile.style";
-import * as PubElementStyle from "../styles/molecules.style/PubElement.style";
-import { PubDescription } from "../styles/molecules.style/PubElement.style";
+import { PubElementWrapper, PubPhoto, ContentRight, PubDescription } from "../styles/molecules.style/pubElement.style";
+
 import HeadPhoto from "./../../../media/HeadPhoto.jpg"
 import temp01 from "./../../../media/temp01.jpg"
 
@@ -35,12 +35,12 @@ export const PubElement: FC<IPubElement> = (props) => {
   hover ? scaleValue = 1.1 : scaleValue = 1;
 
   return (
-    <PubElementStyle.PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
+    <PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
       <PhotoWrapper>
-        <PubElementStyle.PubPhoto src={props?.postPhoto} scale={scaleValue} />
+        <PubPhoto src={props?.postPhoto} scale={scaleValue} />
       </PhotoWrapper>
 
-      <PubElementStyle.ContentRight>
+      <ContentRight>
         <PubDescription>{props?.title}</PubDescription>
         <BarWrapper>
           <CreationDate>
@@ -49,7 +49,7 @@ export const PubElement: FC<IPubElement> = (props) => {
           <HeadPhotoWrapper src={props?.userPhoto} />
           <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
         </BarWrapper>
-      </PubElementStyle.ContentRight>
-    </PubElementStyle.PubElementWrapper>
+      </ContentRight>
+    </PubElementWrapper>
   )
 };

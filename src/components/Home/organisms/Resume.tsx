@@ -14,6 +14,10 @@ import ArrowDownIconPhoto from "./../../../media/icons/arrow-down.svg"
 import { IComment } from '../../../entities/comments';
 import useDropdown from "react-dropdown-hook";
 
+import SignalPhoto from "./../../../media/icons/signal.svg"
+import AllPhoto from "./../../../media/icons/indent-all.svg"
+
+
 export const Resume: FC = () => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -29,6 +33,12 @@ export const Resume: FC = () => {
   const menuHandler = () => {
     toggleDropdown();
   };
+
+  const handleDropdown = (e: any) => {
+    setCategoryFilter(e)
+    console.log(e);
+    setCurrentPage(1)
+  }
 
   const [CategoryFilter, setCategoryFilter] = useState('All')
   const HandleCategoryFilterInput = (e: any) => {
@@ -51,15 +61,21 @@ export const Resume: FC = () => {
           <SectionName>Resume</SectionName>
         </NameAreaWrapper>
         <FilterAreaWrapper>
+
           <FilterInput value={inputText} handler={inputHandler} />
+
           <DropDownFilterContainer ref={wrapperRef}>
+            {CategoryFilter === "All" ?
+              <Icon src={AllPhoto} /> :
+              <Icon src={SignalPhoto} />
+            }
             <ExpandedFilterContainer onClick={menuHandler}>
               {CategoryFilter}
               {dropdownOpen &&
-                <FilterDropdown value={CategoryFilter} handler={HandleCategoryFilterInput} />
+                <FilterDropdown value={CategoryFilter} handler={handleDropdown} />
               }
             </ExpandedFilterContainer>
-            <ArrowDown src={ArrowDownIconPhoto} onClick={menuHandler}/>
+            <ArrowDown src={ArrowDownIconPhoto} onClick={menuHandler} />
           </DropDownFilterContainer>
         </FilterAreaWrapper>
       </NameFilterWrapper>

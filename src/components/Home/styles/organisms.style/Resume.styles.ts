@@ -84,7 +84,8 @@ width: auto;
   }
 `
 export const ExpandedFilterContainer = styled.div`
-min-width: 40px;
+margin-left: 6px;
+min-width: 91px;
 
 
 `
