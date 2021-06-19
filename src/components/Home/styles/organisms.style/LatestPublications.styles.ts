@@ -24,7 +24,7 @@ export const LeftContainer = styled.div`
   z-index: 1;
 `;
 
-export const HeadTilePhoto = styled.div<ToScaleInterface>`
+export const HeadTilePhoto = styled.img<ToScaleInterface>`
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -35,13 +35,13 @@ export const HeadTilePhoto = styled.div<ToScaleInterface>`
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 1s;
-  background: url(${temp01});
   transform: scale(${(props) => props.scale});
 `;
 
 export const RightContainer = styled.div`
   border-radius: 0px 3px 3px 0px;
   height: auto;
+  width: 100%;
   margin-left: 6px;
   margin-right: 3px;
   padding: 6px;

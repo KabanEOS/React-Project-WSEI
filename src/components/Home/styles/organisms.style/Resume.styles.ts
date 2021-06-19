@@ -56,9 +56,35 @@ export const NameAreaWrapper = styled.div`
 `;
 
 export const ArrowDown = styled.img`
+  justify-content: flex-end;
+  cursor: pointer !important;
   height: 6px;
 `;
 
 export const PageWrapper = styled.div`
   margin-bottom: 24px;
 `;
+
+export const CenterH = styled.div`
+    display: flex;
+    justify-content: center
+`;
+
+export const DropDownFilterContainer = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 6px;
+margin-left: 3px;
+margin-right: 3px;
+border-radius: 3px;
+width: auto;
+&:hover {
+    background: ${"white"};
+  }
+`
+export const ExpandedFilterContainer = styled.div`
+min-width: 40px;
+
+
+`

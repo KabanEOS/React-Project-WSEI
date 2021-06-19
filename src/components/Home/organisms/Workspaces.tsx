@@ -19,17 +19,17 @@ export const Workspaces: FC = () => {
       </BelowSectionTitle>
       <WorkElementsSliderWrapper>
         <div ref={ref} className="keen-slider">
-          <div className="keen-slider__slide number-slide1"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide2"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide3"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide4"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide5"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
-          <div className="keen-slider__slide number-slide6"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          <div className="keen-slider__slide number-slide"><WorkElement /></div>
+          //TODO make various types of workspaces and border-radius right site
         </div>
       </WorkElementsSliderWrapper>
     </WorkspacesWrapper >

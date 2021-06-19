@@ -43,7 +43,13 @@ export const ResElementDescription = styled.div`
   line-height: 1.2rem;
 `;
 
-export const ResIcon = styled.img`
+export const SubsIcon = styled.img`
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color:white;
+`;
+
+export const ContractTypeIcon = styled.img`
   height: 1.2rem;
   width: 1.2rem;
 `;

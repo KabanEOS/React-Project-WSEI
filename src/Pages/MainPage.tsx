@@ -20,7 +20,12 @@ import { LeftMenu } from "../components/MainPage/LeftMenu/LeftMenu";
 import { Colors } from "../styledHelpers/Colors";
 
 import useDropdown from 'react-dropdown-hook';
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../actions/usersActions";
+import { getComments } from "../actions/commentActions";
+import { getPhotos } from "../actions/photoActions";
+import { getPosts } from "../actions/postActions";
 
 const ContentContainer = styled.div`
   margin-top: 9px;
@@ -49,16 +54,34 @@ const LeftContainer = styled.div`
   height: 93%;
 `;
 
+type GetUsers = ReturnType<typeof getUsers>;
+type GetPhotos = ReturnType<typeof getPhotos>;
+type GetPosts = ReturnType<typeof getPosts>;
+type GetComments = ReturnType<typeof getComments>;
+
 const MainPage: FC = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch<GetUsers>(getUsers());
+    dispatch<GetPhotos>(getPhotos());
+    dispatch<GetPosts>(getPosts());
+    dispatch<GetComments>(getComments());
+    return () => {
+      // cleanup
+    }
+  }, [dispatch])
+
   return (
-    <GlobalContainer>
-      <TopBar />
-      <ContentContainer>
-        <LeftContainer>
-          <LeftMenu />
-        </LeftContainer>
-        <RightContainer>
-          <Router>
+    <Router>
+      <GlobalContainer>
+        <TopBar />
+        <ContentContainer>
+          <LeftContainer>
+            <LeftMenu />
+          </LeftContainer>
+          <RightContainer>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/Publications" component={Publications} />
@@ -68,10 +91,10 @@ const MainPage: FC = () => {
               <Route path="/Ecosystem" component={Ecosystem} />
               <Route path="/*" component={NotFound} />
             </Switch>
-          </Router>
-        </RightContainer>
-      </ContentContainer>
-    </GlobalContainer>
+          </RightContainer>
+        </ContentContainer>
+      </GlobalContainer>
+    </Router>
   );
 };
 

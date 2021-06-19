@@ -1,42 +1,65 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { LatestPublicationsWrapper as LatestPublicationsWrapper, TileWrapper } from "../../../styledHelpers/Components";
 import { HeadTile } from "../molecules/HeadTile";
 import { HeadTilePhoto, LeftContainer, MainContainer, RightContainer, SectionTitle, SeeMoreLink } from "../styles/organisms.style/LatestPublications.styles";
 import { PubElement } from "../molecules/PubElement";
 import useState from 'react';
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { IPost } from "../../../entities/posts";
+import { IState } from "../../../reducers";
+import { IPostReducer } from "../../../reducers/postReducer";
+import { getPosts } from "../../../actions/postActions";
+import { IUsersReducer } from "../../../reducers/usersReducer";
 
+export interface ILastPublications {
+  publications: IPost[];
+}
 
+// ze względu na nie wystarczająco szczegółowe dane pozyskiwane z API zdecydowałem umieścić losowe zdjęcia autorów oraz postów 
+const postDefaultSmallPhoto: string = 'https://picsum.photos/20'
+
+const authDefaultPhoto: string = 'https://i.pravatar.cc/20'
 
 export const LatestPublications: FC = () => {
 
-  const [hover, setHover] = React.useState(false);
-  const toggleHover = () => {
-    setHover((hover) => !hover);
-  };
-  let scaleValue: number = 1;
-  hover ? scaleValue = 1.12 : scaleValue = 1;
+  const { postList, usersList } = useSelector<IState, IPostReducer &  IUsersReducer>(globalState => ({
+    ...globalState.posts,
+    ...globalState.users,
+  }));
 
-
-  //TODO map all that shit 
+  const threePubElements: IPost[] = [];
+  for (let i = 0; i < 3; i++) {
+    const random = Math.floor(Math.random() * 99);  
+    threePubElements.push(postList[random]);  
+  }
 
   return (
     <LatestPublicationsWrapper>
       <TileWrapper>
         <MainContainer>
-          <LeftContainer onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
-            <HeadTilePhoto scale={scaleValue} />
-            <HeadTile description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miaau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
+          <LeftContainer >
+            <HeadTile
+              title={postList[0]?.body}
+              date={"2020-02-01"}
+              userId={postList[0]?.userId}
+              userPhoto={authDefaultPhoto}  
+              />
           </LeftContainer>
           <RightContainer >
             <SectionTitle>
               Latest Publications
             </SectionTitle>
-            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miaoiau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
-            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu n'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
-            <PubElement description={'Meo miyāʾūnn miau muning. Miau miau miau njäu njäu mňau. Mjau miav miau miau niaou. Mjau miauw meow mňau miaŭ miao.'} creationDate={"2020-02-01"} author={"John Doe"} photoUrl={"/somewhere/etc"} />
+            {threePubElements.map((el,index) => (
+              <PubElement key={index}
+                title={el?.body}
+                date={"2020-02-01"}
+                userId={el?.userId}
+                userPhoto={authDefaultPhoto + el?.userId} 
+                postPhoto={postDefaultSmallPhoto + el?.userId} 
+              />
+            ))}
             <SeeMoreLink>
-              {/* TODO add link route to publications */}
               See more publications
             </SeeMoreLink>
           </RightContainer>

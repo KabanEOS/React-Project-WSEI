@@ -1,26 +1,31 @@
 import React, { FC } from "react";
 import { TileWrapper } from "../../../styledHelpers/Components";
-import { ResElementWrapper, ResElementName, ResElementDescription, ResBarWrapper, ResIcon } from "../styles/molecules.style/ResumeElement.style";
+import { ResElementWrapper, ResElementName, ResElementDescription, ResBarWrapper, ContractTypeIcon, SubsIcon } from "../styles/molecules.style/ResumeElement.style";
 import { CategoryIcon, DarkLine, Dot, Line, UserIcon } from "../styles/molecules.style/WorkElement.style";
+import Entities2Photo from "../../../media/icons/entities2.svg"
+import Balance from "../../../media/icons/balance.svg"
+interface IResElement {
+  title: string;
+  postId: string;
+  description: string;
+}
 
-
-
-export const ResElement: FC = () => {
+export const ResElement:FC<IResElement> = ({title, description, postId}) => {
 
   return (
     <TileWrapper>
       <ResElementWrapper>
         <ResElementName>
-          Contract #145
+          {title}
         </ResElementName>
         <ResElementDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          {description}
         </ResElementDescription>
         <ResBarWrapper>
-          <ResIcon></ResIcon>
+          <SubsIcon src={Balance}/>
           <DarkLine> Subsid. corp.</DarkLine>
           <Dot>•</Dot>
-          <ResIcon></ResIcon>
+          <ContractTypeIcon src={Entities2Photo}/>
           <DarkLine>Corporate</DarkLine>
           <Dot>•</Dot>
           <Line> Updated 3 days ago by John Doe</Line>

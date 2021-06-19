@@ -19,8 +19,8 @@ export const WorkElement: FC = () => {
   let scaleValue: number = 1;
   hover ? scaleValue = 1.1 : scaleValue = 1;
   return (
-    <TileWrapper>
-      <WorkElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
+    <WorkElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
+      <TileWrapper>
         <TopWrapper>
           <TopImage src={temp02} scale={scaleValue} />
         </TopWrapper>
@@ -38,14 +38,13 @@ export const WorkElement: FC = () => {
             <Line>Contract</Line>
             <Dot>•</Dot>
             <UserIcon src={NetworkPhoto} />
-            {/* TODO map everything except this */}
             <Line>150 users</Line>
           </WorkBarWrapper>
           <UpdateBarWrapper>
             Last update 2 days ago.
           </UpdateBarWrapper>
         </BottomWrapper>
-      </WorkElementWrapper>
-    </TileWrapper>
+      </TileWrapper>
+    </WorkElementWrapper>
   )
 };

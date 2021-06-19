@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom';
 import { Reset } from 'styled-reset'
 import styled, { createGlobalStyle } from 'styled-components'
 import MainPage from './Pages/MainPage';
+import { Provider } from 'react-redux';
+import store from './tools/store';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -13,9 +15,11 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <>
-    <GlobalStyle />
-    <Reset />
-    <MainPage />
+    <Provider store={store}>
+      <GlobalStyle />
+      <Reset />
+      <MainPage />
+    </Provider>
   </>,
   document.getElementById('root')
 );

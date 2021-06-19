@@ -12,11 +12,8 @@ import ArrowDownIconPhoto from "./../../media/icons/arrow-down.svg";
 import { TopBarContainer, LeftSideWrapper, Logo, DropDownMenuContainer, ExpandedMenuContainer, HomeIcon, CategoryName, ArrowDown, CenterWrapper, RightSideWrapper, CommentsIconWrapper, CommentsIcon, CommentsIconCounter, CommentLabel, BellIconWrapper, BellIcon, BellIconCounter, BellLabel } from "./styles/TopBar.style";
 import { ExpandedMenu } from "./ExpandedMenu";
 import { SearchBox } from "./SearchBox";
-
-
-interface ITopBarProps {
-  title: string;
-}
+import React from 'react';
+import { useLocation } from "react-router-dom";
 
 export const TopBar = () => {
 
@@ -25,6 +22,7 @@ export const TopBar = () => {
   const menuHandler = () => {
     toggleDropdown();
   };
+
 
   return (
     <TopBarContainer>

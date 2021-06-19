@@ -1,20 +1,32 @@
 import React, { FC } from "react";
+import { useSelector } from "react-redux";
+import { IState } from "../../../reducers";
+import { IPhotosReducer } from "../../../reducers/photoReducer";
+import { IPostReducer } from "../../../reducers/postReducer";
+import { IUsersReducer } from "../../../reducers/usersReducer";
 import { AuthorName, BarWrapper, CreationDate, HeadPhotoWrapper, PhotoWrapper } from "../styles/molecules.style/HeadTile.style";
 import * as PubElementStyle from "../styles/molecules.style/PubElement.style";
 import { PubDescription } from "../styles/molecules.style/PubElement.style";
 import HeadPhoto from "./../../../media/HeadPhoto.jpg"
 import temp01 from "./../../../media/temp01.jpg"
 
-interface Props {
-  description: string,
-  creationDate: string,
-  author: string,
-  photoUrl: string
+interface IPubElement {
+  date: string;
+  title: string;
+  userId: number;
+  userPhoto: string;
+  postPhoto: string;
 }
 
 //TODO map all that shit
 
-export const PubElement: FC<Props> = (props: Props) => {
+export const PubElement: FC<IPubElement> = (props) => {
+
+  const { postList, usersList } = useSelector<IState, IPostReducer &  IUsersReducer>(globalState => ({
+    ...globalState.posts,
+    ...globalState.users,
+  }));
+
   const [hover, setHover] = React.useState(false);
   const toggleHover = () => {
     setHover((hover) => !hover);
@@ -25,17 +37,17 @@ export const PubElement: FC<Props> = (props: Props) => {
   return (
     <PubElementStyle.PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
       <PhotoWrapper>
-        <PubElementStyle.PubPhoto src={temp01} scale={scaleValue} />
+        <PubElementStyle.PubPhoto src={props?.postPhoto} scale={scaleValue} />
       </PhotoWrapper>
 
       <PubElementStyle.ContentRight>
-        <PubDescription>{props.description}</PubDescription>
+        <PubDescription>{props?.title}</PubDescription>
         <BarWrapper>
           <CreationDate>
-            {props.creationDate}
+            {props?.date}
           </CreationDate>
-          <HeadPhotoWrapper src={HeadPhoto} />
-          <AuthorName>{props.author}</AuthorName>
+          <HeadPhotoWrapper src={props?.userPhoto} />
+          <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
         </BarWrapper>
       </PubElementStyle.ContentRight>
     </PubElementStyle.PubElementWrapper>
