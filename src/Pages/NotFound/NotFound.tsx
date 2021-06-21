@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { TopBar } from "../components/TopBar/TopBar";
-import { Colors } from "../styledHelpers/Colors";
+import { TopBar } from "../../components/TopBar/TopBar";
+import { Colors } from "../../styledHelpers/Colors";
 import { Search, Grid, Header, Segment, Label } from 'semantic-ui-react';
 
-import img404 from "./../media/404cat.svg";
+import img404 from "./../../media/404cat.svg";
 
 const ContentWrapper = styled.div`
   display: flex;

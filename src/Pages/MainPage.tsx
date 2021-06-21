@@ -9,12 +9,12 @@ import {
 
 import Publications from "./Publications"
 import Ecosystem from "./Ecosystem"
-import Entities from "./Entities"
+import Entities from "./Entities/Entities"
 import Administration from "./Administration"
 import People from "./People"
-import { NotFound } from "./NotFound"
+import { NotFound } from "./NotFound/NotFound"
 
-import { Home } from "./Home";
+import { Home } from "./Home/Home";
 import { TopBar } from "../components/TopBar/TopBar";
 import { LeftMenu } from "../components/MainPage/LeftMenu/LeftMenu";
 import { Colors } from "../styledHelpers/Colors";
@@ -44,7 +44,7 @@ const RightContainer = styled.div`
   flex-direction: row;
   display: flex;
   width: 73vw;
-  margin-right:10%;
+  /* margin-right:10%; */
   height: 93%;
 `;
 const LeftContainer = styled.div`

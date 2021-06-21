@@ -17,7 +17,6 @@ import useDropdown from "react-dropdown-hook";
 import SignalPhoto from "./../../../media/icons/signal.svg"
 import AllPhoto from "./../../../media/icons/indent-all.svg"
 
-
 export const Resume: FC = () => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -66,8 +65,8 @@ export const Resume: FC = () => {
 
           <DropDownFilterContainer ref={wrapperRef}>
             {CategoryFilter === "All" ?
-              <Icon src={AllPhoto} /> :
-              <Icon src={SignalPhoto} />
+              <Icon src={AllPhoto} onClick={menuHandler} /> :
+              <Icon src={SignalPhoto} onClick={menuHandler} />
             }
             <ExpandedFilterContainer onClick={menuHandler}>
               {CategoryFilter}

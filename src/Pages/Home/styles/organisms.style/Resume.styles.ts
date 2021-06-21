@@ -33,7 +33,7 @@ export const NameFilterWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+
   padding: 12px;
   font-weight: bold;
   padding-bottom: 6px;
@@ -74,7 +74,9 @@ export const DropDownFilterContainer = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
-padding: 6px;
+padding: 3px;
+padding-left:6px;
+padding-right:6px;
 margin-left: 3px;
 margin-right: 3px;
 border-radius: 3px;
@@ -82,10 +84,9 @@ width: auto;
 &:hover {
     background: ${"white"};
   }
-`
+`;
+
 export const ExpandedFilterContainer = styled.div`
 margin-left: 6px;
 min-width: 91px;
-
-
-`
+`;

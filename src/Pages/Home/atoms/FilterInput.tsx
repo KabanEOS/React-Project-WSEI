@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState } from "react";
-import { Gap, LoupeIcon, Search, SearchBoxContainer, SearchQuery } from "../../TopBar/styles/SearchBox.style";
+import { Gap, LoupeIcon, Search, SearchBoxContainer, SearchQuery } from "../../../components/TopBar/styles/SearchBox.style";
 import { Input } from "../styles/atoms.style/FilterInput.style";
 import LoupePhoto from "./../../../media/icons/search.svg"
 import styled from "styled-components";

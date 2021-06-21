@@ -5,7 +5,8 @@ import { IPhotosReducer } from "../../../reducers/photoReducer";
 import { IPostReducer } from "../../../reducers/postReducer";
 import { IUsersReducer } from "../../../reducers/usersReducer";
 import { AuthorName, BarWrapper, CreationDate, HeadPhotoWrapper, PhotoWrapper } from "../styles/molecules.style/HeadTile.style";
-import { PubElementWrapper, PubPhoto, ContentRight, PubDescription } from "../styles/molecules.style/pubElement.style";
+import { ContentRight, PubDescription, PubElementWrapper, PubPhoto } from "../styles/molecules.style/PubElement.style";
+
 
 import HeadPhoto from "./../../../media/HeadPhoto.jpg"
 import temp01 from "./../../../media/temp01.jpg"
@@ -22,7 +23,7 @@ interface IPubElement {
 
 export const PubElement: FC<IPubElement> = (props) => {
 
-  const { postList, usersList } = useSelector<IState, IPostReducer &  IUsersReducer>(globalState => ({
+  const { postList, usersList } = useSelector<IState, IPostReducer & IUsersReducer>(globalState => ({
     ...globalState.posts,
     ...globalState.users,
   }));

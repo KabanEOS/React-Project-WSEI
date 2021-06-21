@@ -25,7 +25,7 @@ export const Text = styled.div`
 export const LatestPublicationsWrapper = styled.div`
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   height: 300px;
-  width: 100%;
+
 `;
 
 export const TileWrapper = styled.div`
