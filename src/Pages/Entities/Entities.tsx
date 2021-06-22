@@ -20,7 +20,7 @@ import { ICommentReducer } from "../../reducers/commentReducer";
 import SignalPhoto from "./../../media/icons/signal.svg"
 import AllPhoto from "./../../media/icons/indent-all.svg"
 import ArrowDownIconPhoto from "./../../media/icons/arrow-down.svg"
-import { EntitiesPageWrapper, EntitiesWrapper, ListButtonRight, MosaicButtonLeft, MosaicButtonsWrapper, MosaicIcon, ListIcon, MosaicText, MosaicTextWrapper, ListButtonRightWrapper } from "./styles/Entities.style";
+import { EntitiesPageWrapper, EntitiesWrapper, ListButtonRight, MosaicButtonLeft, MosaicButtonsWrapper, MosaicIcon, ListIcon, MosaicText, MosaicTextWrapper } from "./styles/Entities.style";
 import { Icon } from "../Home/styles/atoms.style/FilterDropdown.style";
 import { EntityElement } from "./molecules/EntityELement";
 import Pagination from '@material-ui/lab/Pagination';
@@ -32,7 +32,6 @@ const postDefaultSmallPhoto: string = 'https://picsum.photos/20'
 
 const Entities: FC = () => {
 
-  // before adaptation ---------------------------------------------------------------
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   // input
@@ -54,11 +53,6 @@ const Entities: FC = () => {
   }
 
   const [CategoryFilter, setCategoryFilter] = useState('All')
-
-  const HandleCategoryFilterInput = (e: any) => {
-    setCategoryFilter(e)
-    setCurrentPage(1)
-  }
 
   // mosaic/list
   let [ifMosaicBcgnd, setIfMosaicBcgnd] = useState<string>("WhiteSmoke");
@@ -88,8 +82,6 @@ const Entities: FC = () => {
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
   };
-
-  //  ---------------------------------------------------------------
 
   return (
     <EntitiesWrapper>
