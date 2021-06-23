@@ -5,8 +5,6 @@ import { Icon, FilterDropdownWrapper, FilterName, FilterDropdownSection } from "
 
 import SignalPhoto from "./../../../media/icons/signal.svg"
 import AllPhoto from "./../../../media/icons/indent-all.svg"
-import { IconTile } from "../styles/molecules.style/WorkElement.style";
-import { TileWrapper } from "../../../styledHelpers/Components";
 
 interface IFilterDd {
   value: string;
@@ -21,20 +19,18 @@ export const FilterDropdown = ({ handler }: IFilterDd) => {
 
   return (
     <FilterDropdownWrapper>
-      <TileWrapper>
-        <FilterDropdownSection onClick={() => handleClick("All")}>
-          <Icon src={AllPhoto} />
-          <FilterName>
-            All
-          </FilterName>
-        </FilterDropdownSection>
-        <FilterDropdownSection onClick={() => handleClick("Followed")}>
-          <Icon src={SignalPhoto} />
-          <FilterName>
-            Followed
-          </FilterName>
-        </FilterDropdownSection>
-      </TileWrapper>
+      <FilterDropdownSection onClick={() => handleClick("All")}>
+        <Icon src={AllPhoto} />
+        <FilterName>
+          All
+        </FilterName>
+      </FilterDropdownSection>
+      <FilterDropdownSection onClick={() => handleClick("Followed")}>
+        <Icon src={SignalPhoto} />
+        <FilterName>
+          Followed
+        </FilterName>
+      </FilterDropdownSection>
     </FilterDropdownWrapper>
   )
 }

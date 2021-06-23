@@ -22,10 +22,8 @@ export const PubElementWrapper = styled.div`
 
 export const PubPhoto = styled.img<ToScaleInterface>`
   border-radius: 3px 0px 0px 3px;
-  min-height: auto;
-  min-height: auto;
-  min-width: auto;
-  min-width: auto;
+  height: 73px;
+  width: 73px;
   transition: all 1s;
   transform: scale(${(props) => props.scale});
 `;
@@ -33,11 +31,10 @@ export const PubPhoto = styled.img<ToScaleInterface>`
 export const ContentRight = styled.div`
   margin-left: 6px;
   border-radius: 3px;
-  width:auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  width: 100%;
   padding: 6px;
 `;
 

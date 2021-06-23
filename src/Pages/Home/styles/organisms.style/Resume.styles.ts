@@ -41,7 +41,7 @@ export const NameFilterWrapper = styled.div`
 `;
 export const SectionName = styled.div`
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: ${Colors.LightGray};
 `;
 export const FilterAreaWrapper = styled.div`
@@ -67,7 +67,8 @@ export const PageWrapper = styled.div`
 
 export const CenterH = styled.div`
     display: flex;
-    justify-content: center
+    justify-content: center;
+    padding-bottom: 12px;
 `;
 
 export const DropDownFilterContainer = styled.div`
