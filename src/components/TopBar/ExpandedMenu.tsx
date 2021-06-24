@@ -1,9 +1,8 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, useState, ChangeEvent, useEffect } from "react";
 import styled from "styled-components";
 
 import { Colors } from "../../styledHelpers/Colors";
 
-import { PersonalData } from "../../entities/personalData";
 import HeadPhotoJPG from "../../media/HeadPhoto.jpg";
 
 import HomeIcon2Photo from "../../media/icons/house2.svg";
@@ -25,9 +24,18 @@ import {
   Link,
 } from "react-router-dom";
 import { Icon, MainWrapper, DropdownTopWrapper, SectionHead, DropDownTile, Separator, HeadPhoto, AccountTile, AccountTileName, AccountTileLink, LogoutTile, LogoutIcon } from "./styles/ExpandedMenu.syule";
+import { useSelector } from "react-redux";
+import { PersonalData } from "../../entities/personalData";
+import { IState } from "../../reducers";
+import { IUsersReducer } from "../../reducers/usersReducer";
 
 
 export const ExpandedMenu: FC = () => {
+
+  const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+
   const [isSeacrhing, setIsSearching] = useState(false);
 
   const [inputText, setInputText] = useState<string>('')
@@ -157,7 +165,7 @@ export const ExpandedMenu: FC = () => {
             <DropDownTile >
               <HeadPhoto src={HeadPhotoJPG} />
               <AccountTile>
-                <AccountTileName>{PersonalData.name}</AccountTileName>
+                <AccountTileName>{usersList[4]?.name}</AccountTileName>
                 <AccountTileLink>
                   <Link to="/Profile" style={{ textDecoration: 'none' }}>
                     See profile
@@ -176,7 +184,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Settings account'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/Settings" style={{ textDecoration: 'none' }}>
+          <Link to="/Profile" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={SettingsPhoto} />
               Settings
@@ -198,3 +206,4 @@ export const ExpandedMenu: FC = () => {
     </MainWrapper>
   );
 };
+

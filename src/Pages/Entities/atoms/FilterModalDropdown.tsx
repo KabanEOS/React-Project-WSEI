@@ -19,7 +19,8 @@ export const FilterDropdownModal = () => {
         Filtry
       </Title>
       <Table>
-        jestem tabelą
+        jestem tabelą filtrów
+        {/* TODO przekonsultować o co wgle "zaczepić" kategorie, na ile priority jest dynamizm. Moim zdaniem as far as na siłę trzeba wymyślać te sumowane filtry nie ma sensu dynamiczne dodawanie filtrów. Jakiś udawany sens jest dla trzech sztywnych w stylu: posiada w 1) nazwie, 2) posiada w lokalizacji firmy (i tak tylko jedna, bo nie ma w API) */}
       </Table>
     </FilterDropdownModalWrapper>
   )

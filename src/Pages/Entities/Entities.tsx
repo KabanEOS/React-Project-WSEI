@@ -16,7 +16,7 @@ import { IState } from "../../reducers";
 import useDropdown from "react-dropdown-hook";
 import { useSelector } from "react-redux";
 import { ICommentReducer } from "../../reducers/commentReducer";
-import Fullscreen from "fullscreen-react";
+
 import Divider from '@material-ui/core/Divider';
 
 import SignalPhoto from "./../../media/icons/signal.svg"
@@ -37,6 +37,8 @@ import PaperPhoto from "../../media/icons/paper.svg"
 import FullScreenPhoto from "../../media/icons/full-screen.svg"
 import SharePhoto from "../../media/icons/share.svg"
 import { FilterDropdownModal } from "./atoms/FilterModalDropdown";
+// import Fullscreen from 'fullscreen-react';
+// TODO full screen types nie działa, nie widzi typów które powinny być dołaczone do biblioteki
 
 
 const postDefaultSmallPhoto: string = 'https://picsum.photos/20'
@@ -116,113 +118,113 @@ const Entities: FC = () => {
 
 
   return (
-    <Fullscreen isEnter={isEnter} onChange={setIsEnter}>
-      <div className="full-screenable-node">
-        <EntitiesWrapper className="full-screenable-node" style={{ background: "#f5f7f9" }}>
+    // <Fullscreen isEnter={isEnter} onChange={setIsEnter}>
+    <div className="full-screenable-node">
+      <EntitiesWrapper className="full-screenable-node" style={{ background: "#f5f7f9" }}>
 
-          {/* TITLE, LIST/MOSAIC AREA */}
-          <NameFilterWrapper>
-            <NameAreaWrapper>
-              <SectionName>Entities</SectionName>
-            </NameAreaWrapper>
-            <MosaicButtonsWrapper>
-              <MosaicIcon src={MosaicPhoto} onClick={handleMosaic} background={ifMosaicBcgnd} />
-              <MosaicTextWrapper>
-                <MosaicText>
-                  {isMosaic ?
-                    "Mosaic" :
-                    "List"
-                  }
-                </MosaicText>
-              </MosaicTextWrapper>
-              <ListIcon src={ListPhoto} onClick={handleList} background={ifListBcgnd} />
-            </MosaicButtonsWrapper>
-          </NameFilterWrapper>
-
-          {/* FILTER, INPUT_FILTER, ALL_FOLLOWED_DROPDOWN AREA */}
-          <NameFilterWrapper>
-            <NameAreaWrapper>
-              <SectionFilters>
-                <DropdownAllWrapper>
-
-                  <FilterAreaIcon_button src={ButtonPhoto} />
-                  All
-                  <FilterAreaIcon_arrow src={ArrowDownPhoto} />
-
-                </DropdownAllWrapper>
-                <FilterAreaIconWrapper>
-                  <FilterAreaIcon src={MorePhoto} />
-                </FilterAreaIconWrapper>
-                <Divider orientation="vertical" flexItem />
-                <FilterAreaIconWrapper onClick={() => setIsSortedAlphabeticaly(!IsSortedAlphabeticaly)}>
-                  <FilterAreaIcon onClick={() => setIsSortedAlphabeticaly(!IsSortedAlphabeticaly)} src={SortPhoto} />
-                  Sort
-                </FilterAreaIconWrapper>
-                <div ref={wrapperModalRef}>
-                  <FilterAreaIconWrapper onClick={modalHandler}>
-                    <FilterAreaIcon onClick={modalHandler} src={PaperPhoto} />
-                    Filters
-                  </FilterAreaIconWrapper>
-                </div>
-                <Divider orientation="vertical" flexItem />
-                <FilterAreaIconWrapper onClick={() => { setIsEnter(true); }}>
-                  <FilterAreaIcon onClick={() => { setIsEnter(true); }} src={FullScreenPhoto} />
-                </FilterAreaIconWrapper>
-                <Divider orientation="vertical" flexItem />
-                <FilterAreaIconWrapper>
-                  <FilterAreaIcon src={SharePhoto} />
-                  Share
-                </FilterAreaIconWrapper>
-
-              </SectionFilters>
-            </NameAreaWrapper>
-            <FilterAreaWrapper>
-              <FilterInput value={inputText} handler={inputHandler} />
-              <DropDownFilterContainer ref={wrapperRef}>
-                {CategoryFilter === "All" ?
-                  <Icon src={AllPhoto} /> :
-                  <Icon src={SignalPhoto} />
+        {/* TITLE, LIST/MOSAIC AREA */}
+        <NameFilterWrapper>
+          <NameAreaWrapper>
+            <SectionName>Entities</SectionName>
+          </NameAreaWrapper>
+          <MosaicButtonsWrapper>
+            <MosaicIcon src={MosaicPhoto} onClick={handleMosaic} background={ifMosaicBcgnd} />
+            <MosaicTextWrapper>
+              <MosaicText>
+                {isMosaic ?
+                  "Mosaic" :
+                  "List"
                 }
-                <ExpandedFilterContainer onClick={menuHandler}>
-                  {CategoryFilter}
-                  {dropdownOpen &&
-                    <FilterDropdown value={CategoryFilter} handler={handleDropdown} />
-                  }
-                </ExpandedFilterContainer>
-                <ArrowDown src={ArrowDownIconPhoto} onClick={menuHandler} />
-              </DropDownFilterContainer>
-            </FilterAreaWrapper>
-          </NameFilterWrapper>
-          {/* FILTER DROPDOWN AREA */}
+              </MosaicText>
+            </MosaicTextWrapper>
+            <ListIcon src={ListPhoto} onClick={handleList} background={ifListBcgnd} />
+          </MosaicButtonsWrapper>
+        </NameFilterWrapper>
 
-          {dropdownModalOpen &&
-            <FilterDropdownModal />
-          }
+        {/* FILTER, INPUT_FILTER, ALL_FOLLOWED_DROPDOWN AREA */}
+        <NameFilterWrapper>
+          <NameAreaWrapper>
+            <SectionFilters>
+              <DropdownAllWrapper>
+
+                <FilterAreaIcon_button src={ButtonPhoto} />
+                All
+                <FilterAreaIcon_arrow src={ArrowDownPhoto} />
+
+              </DropdownAllWrapper>
+              <FilterAreaIconWrapper>
+                <FilterAreaIcon src={MorePhoto} />
+              </FilterAreaIconWrapper>
+              <Divider orientation="vertical" flexItem />
+              <FilterAreaIconWrapper onClick={() => setIsSortedAlphabeticaly(!IsSortedAlphabeticaly)}>
+                <FilterAreaIcon onClick={() => setIsSortedAlphabeticaly(!IsSortedAlphabeticaly)} src={SortPhoto} />
+                Sort
+              </FilterAreaIconWrapper>
+              <div ref={wrapperModalRef}>
+                <FilterAreaIconWrapper onClick={modalHandler}>
+                  <FilterAreaIcon onClick={modalHandler} src={PaperPhoto} />
+                  Filters
+                </FilterAreaIconWrapper>
+              </div>
+              <Divider orientation="vertical" flexItem />
+              <FilterAreaIconWrapper onClick={() => { setIsEnter(true); }}>
+                <FilterAreaIcon onClick={() => { setIsEnter(true); }} src={FullScreenPhoto} />
+              </FilterAreaIconWrapper>
+              <Divider orientation="vertical" flexItem />
+              <FilterAreaIconWrapper>
+                <FilterAreaIcon src={SharePhoto} />
+                Share
+              </FilterAreaIconWrapper>
+
+            </SectionFilters>
+          </NameAreaWrapper>
+          <FilterAreaWrapper>
+            <FilterInput value={inputText} handler={inputHandler} />
+            <DropDownFilterContainer ref={wrapperRef}>
+              {CategoryFilter === "All" ?
+                <Icon src={AllPhoto} /> :
+                <Icon src={SignalPhoto} />
+              }
+              <ExpandedFilterContainer onClick={menuHandler}>
+                {CategoryFilter}
+                {dropdownOpen &&
+                  <FilterDropdown value={CategoryFilter} handler={handleDropdown} />
+                }
+              </ExpandedFilterContainer>
+              <ArrowDown src={ArrowDownIconPhoto} onClick={menuHandler} />
+            </DropDownFilterContainer>
+          </FilterAreaWrapper>
+        </NameFilterWrapper>
+        {/* FILTER DROPDOWN AREA */}
+
+        {dropdownModalOpen &&
+          <FilterDropdownModal />
+        }
 
 
-          {/* TILE AREA */}
-          <EntitiesPageWrapper>
-            {(CategoryFilter === "All" ? commentList.filter(c => c.postId < 100) : commentList.filter(c => c.postId === 1))
-              .filter(c => c.name.includes(inputText)) // TODO how to add multiple filter, for now it watch through name
-              .slice((currentPage - 1) * 20, (currentPage - 1) * 20 + 20)
-              .sort(IsSortedAlphabeticaly ? (a, b) => a.name.localeCompare(b.name) : (a, b) => 0)
-              .map((e: IComment, index: number) => (
-                <EntityElement
-                  title={e.name}
-                  company={'Caracas 1050, Districto Capital, Venezuela'}
-                  postPhoto={postDefaultSmallPhoto + e?.postId}
-                  iconWidth={iconWidth}
-                >
-                </EntityElement>
-              ))}
+        {/* TILE AREA */}
+        <EntitiesPageWrapper>
+          {(CategoryFilter === "All" ? commentList.filter(c => c.postId < 100) : commentList.filter(c => c.postId === 1))
+            .filter(c => c.name.includes(inputText)) // TODO how to add multiple filter, for now it watch through name
+            .slice((currentPage - 1) * 20, (currentPage - 1) * 20 + 20)
+            .sort(IsSortedAlphabeticaly ? (a, b) => a.name.localeCompare(b.name) : (a, b) => 0)
+            .map((e: IComment, index: number) => (
+              <EntityElement
+                title={e.name}
+                company={'Caracas 1050, Districto Capital, Venezuela'}
+                postPhoto={postDefaultSmallPhoto + e?.postId}
+                iconWidth={iconWidth}
+              >
+              </EntityElement>
+            ))}
 
-          </EntitiesPageWrapper>
-          <CenterH>
-            <Pagination count={Math.floor((CategoryFilter === "All" ? commentList : commentList.filter(c => c.postId === 1)).filter(c => c.name.includes(inputText)).length / 20) - 1} page={currentPage} onChange={handlePageChange} />
-          </CenterH>
-        </EntitiesWrapper>
-      </div>
-    </Fullscreen >
+        </EntitiesPageWrapper>
+        <CenterH>
+          <Pagination count={Math.floor((CategoryFilter === "All" ? commentList : commentList.filter(c => c.postId === 1)).filter(c => c.name.includes(inputText)).length / 20) - 1} page={currentPage} onChange={handlePageChange} />
+        </CenterH>
+      </EntitiesWrapper>
+    </div>
+    // </Fullscreen >
   );
 };
 

@@ -16,25 +16,18 @@ import { APP_ID, BASE_URL } from "../../../consts";
 import { PersonalData } from "../../../entities/personalData";
 import { OuterWrapper, TileWrapperTop, TileWrapperDown, LineWrapperTop, LineWrapperSection } from "../../../styledHelpers/Components";
 import { Icon, LeftMenuContainer, LefMenuUp, HeadWrapper, HeadPhoto, HeadName, HeadTitle, YourEtcTxtIcoSet, TxtWrapper, Txt, RoundedIcon, LefMenuDown, YourEtcTxtIcoSetLinks, Gap } from "./LeftMenu.style";
+import { useSelector } from "react-redux";
+import { IState } from "../../../reducers";
+import { IUsersReducer } from "../../../reducers/usersReducer";
 
 export const LeftMenu: FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>(null);
 
-  // useEffect(() => {
-  //     setLoading(true);
-  //     axios.get(`${BASE_URL}user`, { headers: { 'app-id': APP_ID } })
-  //         .then(({ data }) => setData(data))
-  //         .catch(console.error)
-  //         .finally(() => setLoading(false));
-  // }, []);
-
-  // console.log(data);
-  // const PersonData = {
-  //   firstName: "Michał Madejski",
-  //   headName: "Michał Madejski",
-  // }
+  const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
 
   return (
     <LeftMenuContainer>
@@ -43,8 +36,8 @@ export const LeftMenu: FC = () => {
           <TileWrapperTop>
             <HeadWrapper>
               <HeadPhoto src={HeadPhotoJPG} />
-              <HeadName>{PersonalData.name}</HeadName>
-              <HeadTitle>{`${PersonalData.jobTitle} - ${PersonalData.company}`}</HeadTitle>
+              <HeadName>{usersList[4]?.name}</HeadName>
+              <HeadTitle>{usersList[4]?.company.name}</HeadTitle>
             </HeadWrapper>
           </TileWrapperTop>
           <TileWrapperDown>

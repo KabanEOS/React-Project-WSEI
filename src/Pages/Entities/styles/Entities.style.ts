@@ -4,6 +4,7 @@ import { Colors } from "../../../styledHelpers/Colors";
 export const EntitiesWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width:70vw;
 `;
 
 export const EntitiesPageWrapper = styled.div`
@@ -11,6 +12,7 @@ export const EntitiesPageWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 24px;
+
 `;
 
 interface IsMosaicInterface {

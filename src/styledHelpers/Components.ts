@@ -75,3 +75,9 @@ export const OuterWrapper = styled.div`
 export const border = styled.div`
   padding: 2px;
 `;
+
+
+export const ProfileSectionWraper = styled.div`
+  padding: 12px;
+`;
+

@@ -14,7 +14,7 @@ export const EntityElementWrapper = styled.div<HandleWidth>`
   display: flex;
   flex-direction: row;
   border-radius: 3px;
-  min-width: 300px;
+  min-width: 280px;
   width: ${(props) => props.iconWidth};
   height: auto;
   background-color: white;

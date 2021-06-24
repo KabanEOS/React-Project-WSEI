@@ -27,6 +27,7 @@ export const HeadWrapper = styled.div`
 export const HeadPhoto = styled.img`
   width: 45%;
   padding: 9px;
+  border-radius: 50%;
 `;
 export const HeadName = styled.div`
   padding: 3px;

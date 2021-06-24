@@ -29,6 +29,7 @@ export const InfoBar = styled.div`
 `;
 
 export const NameFilterWrapper = styled.div`
+/* width:70vw; */
   display: flex;
   flex-direction: row;
   align-items: center;
