@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../../../styledHelpers/Colors";
 
 
 export const FilterDropdownModalWrapper = styled.div`
@@ -18,8 +19,15 @@ top:146px;
 `
 export const Title = styled.div`
   padding: 12px;
+  color:${Colors.LightGray};
 `
 export const Table = styled.div`
   padding: 12px;
+
+`
+export const FilterModalRow = styled.div`
+display: flex;
+flex-direction:row;
+  padding: 6px;
 
 `

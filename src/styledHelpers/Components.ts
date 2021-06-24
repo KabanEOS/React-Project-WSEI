@@ -1,3 +1,4 @@
+import { Paper } from "@material-ui/core";
 import styled from "styled-components";
 import { Colors } from "./Colors";
 
@@ -14,12 +15,10 @@ const boxShadow = (): Styles => {
 export const ContentWrapper = styled.div`
   padding: 9px;
   display: flex;
-  width: 80vw;
 `;
 export const Text = styled.div`
   padding: 9px;
   display: flex;
-  width: 80vw;
 `;
 
 export const LatestPublicationsWrapper = styled.div`
@@ -33,6 +32,7 @@ export const TileWrapper = styled.div`
   border-radius: 3px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   background-color: white;
+  color:black;
 `;
 
 export const TileWrapperTop = styled.div`
@@ -76,8 +76,22 @@ export const border = styled.div`
   padding: 2px;
 `;
 
+export const Space = styled.div`
+  width:6px;
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
+  height: 30px;
+  align-items: center;
+`;
+
 
 export const ProfileSectionWraper = styled.div`
   padding: 12px;
 `;
 
+export const PaddedPaper = styled(Paper)`
+    padding: 1rem;
+    width:60%;
+`

@@ -87,6 +87,7 @@ export const Line = styled.div`
   font-size: 0.65rem;
   color: ${Colors.Gray};
   font-weight: 600;
+  
 `;
 
 export const DarkLine = styled.div`

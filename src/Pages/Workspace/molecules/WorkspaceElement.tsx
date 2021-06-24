@@ -1,17 +1,19 @@
 import React, { FC } from "react";
 import { TileWrapper } from "../../../styledHelpers/Components";
-import { ResElementWrapper, ResElementName, ResElementDescription, ResBarWrapper, ContractTypeIcon, SubsIcon } from "../styles/molecules.style/ResumeElement.style";
-import { CategoryIcon, DarkLine, Dot, Line, UserIcon } from "../styles/molecules.style/WorkElement.style";
 import Entities2Photo from "../../../media/icons/entities2.svg"
 import Balance from "../../../media/icons/balance.svg"
 import { Link } from "react-router-dom";
+import { DarkLine, Dot, Line } from "../../Home/styles/molecules.style/WorkElement.style";
+import { ResElementWrapper, ResElementName, ResElementDescription, ResBarWrapper, ContractTypeIcon, SpecialButton } from "../../Home/styles/molecules.style/ResumeElement.style";
+import EntitiesPhoto from "../../../media/icons/entities.svg"
+import { FancyButton, FancyIcon } from "../styles/organisms.styles/LatestUpdates.styles";
 interface IResElement {
   title: string;
   postId: string;
   description: string;
 }
 
-export const ResElement: FC<IResElement> = ({ title, description, postId }) => {
+export const WorkspaceElement: FC<IResElement> = ({ title, description, postId }) => {
 
   return (
     <Link to="/ResElement" style={{ textDecoration: 'none' }}>
@@ -24,14 +26,12 @@ export const ResElement: FC<IResElement> = ({ title, description, postId }) => {
             {description}
           </ResElementDescription>
           <ResBarWrapper>
-            <SubsIcon src={Balance} />
-            <DarkLine> Subsid. corp.</DarkLine>
-            <Dot>•</Dot>
-            <ContractTypeIcon src={Entities2Photo} />
-            <DarkLine>Corporate</DarkLine>
+            <SpecialButton style={{ backgroundColor: "#c0f0b6" }}>
+              <FancyIcon src={EntitiesPhoto} />
+              SAS
+            </SpecialButton>
             <Dot>•</Dot>
             <Line> Updated 3 days ago by John Doe</Line>
-
           </ResBarWrapper>
         </ResElementWrapper>
       </TileWrapper>

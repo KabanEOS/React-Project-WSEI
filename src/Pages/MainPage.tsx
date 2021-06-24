@@ -16,7 +16,7 @@ import { NotFound } from "./NotFound/NotFound"
 
 import { Home } from "./Home/Home";
 import { TopBar } from "../components/TopBar/TopBar";
-import { LeftMenu } from "../components/MainPage/LeftMenu/LeftMenu";
+import { LeftMenu } from "../components/LeftMenu/LeftMenu";
 import { Colors } from "../styledHelpers/Colors";
 
 import useDropdown from 'react-dropdown-hook';
@@ -30,6 +30,7 @@ import { Profile } from "./Profile/Profile";
 import { IState } from "../reducers";
 import { IUsersReducer } from "../reducers/usersReducer";
 import { ISingleUser } from "../entities/users";
+import { Workspace } from "./Workspace/Workspace";
 
 const ContentContainer = styled.div`
   margin-top: 9px;
@@ -89,9 +90,9 @@ const MainPage: FC = () => {
           <RightContainer>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/Publications" component={Publications} />
               <Route path="/Entities" component={Entities} />
               <Route path="/Profile" component={Profile} />
+              <Route path="/Workspace" component={Workspace} />
 
 
               <Route path="/*" component={NotFound} />

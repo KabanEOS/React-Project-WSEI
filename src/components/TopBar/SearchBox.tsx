@@ -18,7 +18,6 @@ export const SearchBox: FC = () => {
           <Input
             type="text"
             placeholder="Search"
-          // TODO onKeyUp="" // funkcja wyszukująca
           />
         </Search>
         <LoupeIcon src={LoupePhoto} />

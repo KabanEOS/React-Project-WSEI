@@ -9,8 +9,6 @@ import { BelowSectionTitle, WorkElementsSliderWrapper, WorkspacesWrapper } from 
 
 export const Workspaces: FC = () => {
   const [ref, slider] = useKeenSlider<HTMLDivElement>({ slidesPerView: 5, spacing: 12 })
-  //TODO map shit naturally and make screen width media query
-
 
   return (
     <WorkspacesWrapper>
@@ -29,7 +27,6 @@ export const Workspaces: FC = () => {
           <div className="keen-slider__slide number-slide"><WorkElement /></div>
           <div className="keen-slider__slide number-slide"><WorkElement /></div>
           <div className="keen-slider__slide number-slide"><WorkElement /></div>
-          //TODO make various types of workspaces and border-radius right site
         </div>
       </WorkElementsSliderWrapper>
     </WorkspacesWrapper >

@@ -6,6 +6,7 @@ import { IState } from "../../../reducers";
 import { IPostReducer } from "../../../reducers/postReducer";
 import { IUsersReducer } from "../../../reducers/usersReducer";
 import { HeadTilePhoto } from "../styles/organisms.style/LatestPublications.styles";
+import { Link } from "react-router-dom";
 
 interface IHeadElement {
   date: string;
@@ -31,16 +32,18 @@ export const HeadTile: FC<IHeadElement> = (props) => {
   }));
 
   return (
-    <div onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
-      <HeadTilePhoto src={postDefaultBigPhoto} scale={scaleValue} />
-      <HeadTileWrapper >
-        <Description>{props.title}</Description>
-        <BarWrapper>
-          <CreationDate>{props.date}</CreationDate>
-          <HeadPhotoWrapper src={props?.userPhoto} />
-          <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
-        </BarWrapper>
-      </HeadTileWrapper>
-    </div>
+    <Link to="HeadTile" style={{ textDecoration: 'none' }}>
+      <div onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
+        <HeadTilePhoto src={postDefaultBigPhoto} scale={scaleValue} />
+        <HeadTileWrapper >
+          <Description>{props.title}</Description>
+          <BarWrapper>
+            <CreationDate>{props.date}</CreationDate>
+            <HeadPhotoWrapper src={props?.userPhoto} />
+            <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
+          </BarWrapper>
+        </HeadTileWrapper>
+      </div>
+    </Link>
   )
 };

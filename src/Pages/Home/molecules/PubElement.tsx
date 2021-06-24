@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { IState } from "../../../reducers";
 import { IPhotosReducer } from "../../../reducers/photoReducer";
 import { IPostReducer } from "../../../reducers/postReducer";
@@ -19,8 +20,6 @@ interface IPubElement {
   postPhoto: string;
 }
 
-//TODO map all that shit
-
 export const PubElement: FC<IPubElement> = (props) => {
 
   const { postList, usersList } = useSelector<IState, IPostReducer & IUsersReducer>(globalState => ({
@@ -36,21 +35,23 @@ export const PubElement: FC<IPubElement> = (props) => {
   hover ? scaleValue = 1.1 : scaleValue = 1;
 
   return (
-    <PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
-      <PhotoWrapper>
-        <PubPhoto src={props?.postPhoto} scale={scaleValue} />
-      </PhotoWrapper>
+    <Link to="LatestPublicationsElement" style={{ textDecoration: 'none' }}>
+      <PubElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
+        <PhotoWrapper>
+          <PubPhoto src={props?.postPhoto} scale={scaleValue} />
+        </PhotoWrapper>
 
-      <ContentRight>
-        <PubDescription>{props?.title}</PubDescription>
-        <BarWrapper>
-          <CreationDate>
-            {props?.date}
-          </CreationDate>
-          <HeadPhotoWrapper src={props?.userPhoto} />
-          <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
-        </BarWrapper>
-      </ContentRight>
-    </PubElementWrapper>
+        <ContentRight>
+          <PubDescription>{props?.title}</PubDescription>
+          <BarWrapper>
+            <CreationDate>
+              {props?.date}
+            </CreationDate>
+            <HeadPhotoWrapper src={props?.userPhoto} />
+            <AuthorName>{usersList[props?.userId - 1]?.name}</AuthorName>
+          </BarWrapper>
+        </ContentRight>
+      </PubElementWrapper>
+    </Link>
   )
 };

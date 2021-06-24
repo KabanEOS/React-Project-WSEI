@@ -46,4 +46,6 @@ export const PubDescription = styled.div`
   height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: black;
+  text-decoration: none;
 `;

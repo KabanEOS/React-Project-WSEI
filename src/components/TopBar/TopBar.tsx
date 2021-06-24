@@ -13,7 +13,7 @@ import { TopBarContainer, LeftSideWrapper, Logo, DropDownMenuContainer, Expanded
 import { ExpandedMenu } from "./ExpandedMenu";
 import { SearchBox } from "./SearchBox";
 import React from 'react';
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const TopBar = () => {
 
@@ -27,7 +27,9 @@ export const TopBar = () => {
   return (
     <TopBarContainer>
       <LeftSideWrapper>
-        <Logo src={LogoImage} />
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Logo src={LogoImage} />
+        </Link>
         <DropDownMenuContainer ref={wrapperRef}>
           <ExpandedMenuContainer onClick={menuHandler}>
             <HomeIcon src={HomeIconPhoto} />
@@ -43,8 +45,9 @@ export const TopBar = () => {
         <SearchBox />
       </CenterWrapper>
       <RightSideWrapper>
-        <HomeIcon src={HomeIconPhoto} />
-
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <HomeIcon src={HomeIconPhoto} />
+        </Link>
         <CommentsIconWrapper>
           <CommentsIcon src={CommentsIconPhoto} />
           <CommentsIconCounter>

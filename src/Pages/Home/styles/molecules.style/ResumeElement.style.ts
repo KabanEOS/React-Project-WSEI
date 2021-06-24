@@ -12,6 +12,7 @@ export const ResBarWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+
   align-items: center;
   padding: 6px;
   width: auto;
@@ -52,4 +53,20 @@ export const SubsIcon = styled.img`
 export const ContractTypeIcon = styled.img`
   height: 1.2rem;
   width: 1.2rem;
+`;
+
+export const SpecialButton = styled.div`
+display:flex;
+flex-direction: row;
+align-items: center;
+height: 24px;
+cursor: pointer;
+box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+border-radius: 3px;
+background-color:white;
+color:black;
+white-space: nowrap;
+line-height: 21px;
+margin-right: 3px;
+padding:1px;
 `;

@@ -175,14 +175,6 @@ cursor: pointer;
   }
 `;
 
-
-export const Separator = styled.div`
-height: 21;
-border-left: 1px solid black;
-
-//TODO this small sh** is not visible, why?
-`;
-
 export const DropdownAllWrapper = styled.div`
 display: flex;
 flex-direction: row;

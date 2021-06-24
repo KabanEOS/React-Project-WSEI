@@ -105,7 +105,7 @@ export const ExpandedMenu: FC = () => {
           </SectionHead>
         }
         {'Client contract Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/ClientContract" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={FormPhoto} />
               Client contract
@@ -113,7 +113,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Supplier contract Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/SupplierContract" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={FormPhoto} />
               Supplier contract
@@ -121,7 +121,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Corporate Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/SupplierContract" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={Entities2Photo} />
               Corporate
@@ -129,7 +129,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Group Norms Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/GroupNorms" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={BookPhoto} />
               Group Norms
@@ -137,7 +137,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Real estate contracts Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/SupplierContract" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={FormPhoto} />
               Real estate contracts
@@ -145,7 +145,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Real estate contracts Workspaces'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/SupplierContract" style={{ textDecoration: 'none' }}>
+          <Link to="/Workspace" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={FormPhoto} />
               Real estate contracts
@@ -161,7 +161,7 @@ export const ExpandedMenu: FC = () => {
           </SectionHead>
         }
         {`{${PersonalData.name} profile personal account}}`.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/GroupNorms" style={{ textDecoration: 'none' }}>
+          <Link to="/Profile" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <HeadPhoto src={HeadPhotoJPG} />
               <AccountTile>
@@ -176,7 +176,7 @@ export const ExpandedMenu: FC = () => {
           </Link>
         }
         {'Privacy account'.toLocaleLowerCase().includes(inputText.toLocaleLowerCase()) &&
-          <Link to="/Privacy" style={{ textDecoration: 'none' }}>
+          <Link to="/Profile" style={{ textDecoration: 'none' }}>
             <DropDownTile >
               <Icon src={PrivacyPhoto} />
               Privacy

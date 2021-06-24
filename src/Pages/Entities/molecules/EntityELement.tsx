@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { IState } from "../../../reducers";
 import { IPhotosReducer } from "../../../reducers/photoReducer";
 import { IPostReducer } from "../../../reducers/postReducer";
@@ -17,10 +18,16 @@ interface IEntityElement {
   company: string;
   postPhoto: string;
   iconWidth: string;
+  id: string;
 }
 
 export const EntityElement: FC<IEntityElement> = (props) => {
 
+  // handle link cause this sh*t change css width and mess up all view
+  let history = useHistory();
+  const handleLink = () => {
+    history.push("/EntityElement" + props?.id);
+  }
 
   const { postList, usersList } = useSelector<IState, IPostReducer & IUsersReducer>(globalState => ({
     ...globalState.posts,
@@ -34,10 +41,13 @@ export const EntityElement: FC<IEntityElement> = (props) => {
   let scaleValue: number = 1;
   hover ? scaleValue = 1.1 : scaleValue = 1;
 
+  let valuePic = Number(props?.id) + 200
+
+
   return (
-    <EntityElementWrapper onMouseEnter={toggleHover} onMouseLeave={toggleHover} iconWidth={props?.iconWidth}>
+    <EntityElementWrapper onClick={handleLink} onMouseEnter={toggleHover} onMouseLeave={toggleHover} iconWidth={props?.iconWidth}>
       <EntityPhotoWrapper>
-        <PubEntityPhoto src={props?.postPhoto} scale={scaleValue} />
+        <PubEntityPhoto src={props?.postPhoto + valuePic} scale={scaleValue} />
       </EntityPhotoWrapper>
 
       <ContentRight>
@@ -47,5 +57,6 @@ export const EntityElement: FC<IEntityElement> = (props) => {
         </BarWrapper>
       </ContentRight>
     </EntityElementWrapper>
+
   )
 };

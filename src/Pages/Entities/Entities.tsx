@@ -3,7 +3,8 @@ import styled from "styled-components";
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 import { ContentWrapper } from "../../styledHelpers/Components";
 
@@ -37,11 +38,8 @@ import PaperPhoto from "../../media/icons/paper.svg"
 import FullScreenPhoto from "../../media/icons/full-screen.svg"
 import SharePhoto from "../../media/icons/share.svg"
 import { FilterDropdownModal } from "./atoms/FilterModalDropdown";
-// import Fullscreen from 'fullscreen-react';
-// TODO full screen types nie działa, nie widzi typów które powinny być dołaczone do biblioteki
 
-
-const postDefaultSmallPhoto: string = 'https://picsum.photos/20'
+const postDefaultSmallPhoto: string = 'https://picsum.photos/'
 
 const Entities: FC = () => {
 
@@ -61,7 +59,6 @@ const Entities: FC = () => {
 
   const handleDropdown = (e: any) => {
     setCategoryFilter(e)
-    console.log(e);
     setCurrentPage(1)
   }
 
@@ -109,14 +106,6 @@ const Entities: FC = () => {
     setIsFilter((isFilter) => !isFilter);
   }
 
-  const [wrapperModalRef, dropdownModalOpen, toggleModalDropdown] = useDropdown();
-
-  const modalHandler = () => {
-    toggleModalDropdown();
-  };
-
-
-
   return (
     // <Fullscreen isEnter={isEnter} onChange={setIsEnter}>
     <div className="full-screenable-node">
@@ -160,12 +149,10 @@ const Entities: FC = () => {
                 <FilterAreaIcon onClick={() => setIsSortedAlphabeticaly(!IsSortedAlphabeticaly)} src={SortPhoto} />
                 Sort
               </FilterAreaIconWrapper>
-              <div ref={wrapperModalRef}>
-                <FilterAreaIconWrapper onClick={modalHandler}>
-                  <FilterAreaIcon onClick={modalHandler} src={PaperPhoto} />
-                  Filters
-                </FilterAreaIconWrapper>
-              </div>
+              <FilterAreaIconWrapper onClick={toggleIsFilter}>
+                <FilterAreaIcon onClick={toggleIsFilter} src={PaperPhoto} />
+                Filters
+              </FilterAreaIconWrapper>
               <Divider orientation="vertical" flexItem />
               <FilterAreaIconWrapper onClick={() => { setIsEnter(true); }}>
                 <FilterAreaIcon onClick={() => { setIsEnter(true); }} src={FullScreenPhoto} />
@@ -197,25 +184,24 @@ const Entities: FC = () => {
         </NameFilterWrapper>
         {/* FILTER DROPDOWN AREA */}
 
-        {dropdownModalOpen &&
-          <FilterDropdownModal />
+        {isFilter ?
+          <FilterDropdownModal /> : <div />
         }
-
 
         {/* TILE AREA */}
         <EntitiesPageWrapper>
           {(CategoryFilter === "All" ? commentList.filter(c => c.postId < 100) : commentList.filter(c => c.postId === 1))
-            .filter(c => c.name.includes(inputText)) // TODO how to add multiple filter, for now it watch through name
+            .filter(c => c.name.includes(inputText))
             .slice((currentPage - 1) * 20, (currentPage - 1) * 20 + 20)
             .sort(IsSortedAlphabeticaly ? (a, b) => a.name.localeCompare(b.name) : (a, b) => 0)
             .map((e: IComment, index: number) => (
               <EntityElement
                 title={e.name}
                 company={'Caracas 1050, Districto Capital, Venezuela'}
-                postPhoto={postDefaultSmallPhoto + e?.postId}
+                postPhoto={postDefaultSmallPhoto}
                 iconWidth={iconWidth}
-              >
-              </EntityElement>
+                id={e?.id}
+              />
             ))}
 
         </EntitiesPageWrapper>
