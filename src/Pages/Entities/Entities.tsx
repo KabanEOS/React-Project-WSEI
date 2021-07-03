@@ -70,8 +70,6 @@ const Entities: FC = () => {
   let [isMosaic, setIsMosaic] = useState<boolean>(true);
   let [iconWidth, setIconWidth] = useState<string>("24%");
 
-
-
   const handleMosaic = () => {
     setIsMosaic(true)
     setIfMosaicBcgnd("#D3D3D3")

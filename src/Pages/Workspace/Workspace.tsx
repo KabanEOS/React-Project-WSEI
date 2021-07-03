@@ -10,7 +10,6 @@ export const Workspace: FC = () => {
 
   return (
     <WorkspaceWrapper>
-
       <CorporateHoldings />
       <BigThree />
       <LatestUpdates />

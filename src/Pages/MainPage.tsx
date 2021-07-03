@@ -93,8 +93,6 @@ const MainPage: FC = () => {
               <Route path="/Entities" component={Entities} />
               <Route path="/Profile" component={Profile} />
               <Route path="/Workspace" component={Workspace} />
-
-
               <Route path="/*" component={NotFound} />
             </Switch>
           </RightContainer>

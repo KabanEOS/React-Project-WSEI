@@ -15,7 +15,6 @@ export const Home: FC = () => {
       <LatestPublications />
       <Workspaces />
       <Resume />
-
     </ContentWrapper>
   );
 };
